@@ -1,0 +1,25 @@
+
+revenue-report-details {
+    ion-item.revenue {
+        padding-right: 15px !important;
+    }
+    .item-input ion-label {
+        max-width: calc(100% - 100px);
+    }
+    /*ion-input {
+        input {
+            padding-right: 20px;
+        }
+        &:after {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-52%);
+            content: "\20ac";
+            font-family: DidactRegular;
+        }
+    } */
+    .add ion-label {
+        margin: 3px 0 !important;
+    }
+}

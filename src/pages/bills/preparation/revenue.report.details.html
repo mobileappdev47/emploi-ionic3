@@ -1,0 +1,22 @@
+<ion-content padding>
+  <button-back label="bills.preparation.details.back"></button-back>
+
+  <ion-item class="head">
+    <h2 text-wrap head-2>{{ 'bills.preparation.details.revenue.headline' | translate }}</h2>
+  </ion-item>
+
+  <form #form="ngForm">
+
+    <ion-item *ngFor="let slot of revenue.sales_volume; let i = index;" class="revenue">
+      <ion-label text-nowrap>{{ slot.saleslot }}</ion-label>
+      <ion-input type="number" [(ngModel)]="slot.value" validateCurrency [readonly]="disabled" [name]="'rev-' + i">
+      </ion-input>
+    </ion-item>
+
+    <ion-item text-wrap no-lines>
+      <button ion-button full solid strong color="button-primary" (click)="onSet()" [attr.disabled]="!form.valid || disabled || undefined">
+        {{ 'bills.preparation.details.revenue.set' | translate }}
+      </button>
+    </ion-item>
+  </form>
+</ion-content>

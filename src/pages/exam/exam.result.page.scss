@@ -1,0 +1,44 @@
+@import "../../theme/mixins";
+
+page-exam-result {
+    ion-icon {
+        display: block;
+        font-size: 80px;
+        padding-bottom: 5px;
+    }
+    .item-block  {
+        padding-left: 0;
+        margin-bottom: 15px;
+    }
+    ion-label {
+        line-height: 1.8;
+        padding-bottom: 5px;
+    }
+    .percents {
+        font-size: 50px;
+        float: left;
+    }
+    .result {
+        p {
+            text-align: end;
+        }
+    }
+    .nok-questions {
+        p {
+            text-align: left;
+        }
+        ul {
+            padding-left: 2rem;
+        }
+        li {
+            @include line-ellipsis(2);
+            margin-bottom: 0.5rem;
+            padding-left: 0;
+            &:before {
+                content: '\25cf';
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+}

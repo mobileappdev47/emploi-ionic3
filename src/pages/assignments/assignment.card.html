@@ -1,0 +1,24 @@
+<ion-card tappable (click)="showDetails()" [ngClass]="status.class">
+  <ion-item class="counting">
+    <ion-thumbnail item-start>
+      <ion-icon medium></ion-icon>
+    </ion-thumbnail>
+    <ion-row class="head">
+      <h3 head-3>
+        <span class="today">
+          <span>{{ 'assignments.header.' + status.header | translate }}</span>
+          <span>{{ assignment.start_at | amTimeAgo : status.header === 'now' }}</span>
+          <span class="remain">{{ 'common.remaining' | translate }}</span>
+          <span class="late">{{ 'common.late' | translate }}</span>
+        </span>
+        <span class="future">{{ assignment.start_at | amDateFormat : 'DD MMM' }}, {{ assignment.start_time }}</span>
+      </h3>
+    </ion-row>
+  </ion-item>
+
+  <tender-item [tender]="assignment"></tender-item>
+
+  <button class="action" (click)="$event.stopPropagation(); action()">
+    {{ 'assignments.buttons.' + status.button | translate }}
+  </button>
+</ion-card>

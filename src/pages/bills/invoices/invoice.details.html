@@ -1,0 +1,75 @@
+<ion-content padding text-wrap>
+  <button-back label="bills.invoices.back"></button-back>
+
+  <ion-item class="head">
+    <h2 head-2>{{ 'bills.invoice.title.details' | translate }}</h2>
+  </ion-item>
+
+  <ion-item *ngIf="details.state === 'rejected'" class="head rejected">
+    <h5 head-5>{{ 'bills.invoice.rejected.headline' | translate }}</h5>
+    <p [innerHTML]="'bills.invoice.rejected.hint-invoice' | translate | nl2br" *ngIf="assignmentsPrepared && details.state === 'rejected'"></p>
+    <p [innerHTML]="'bills.invoice.rejected.hint-preparation' | translate | nl2br" *ngIf="assignmentsPrepared === false"></p>
+    <button ion-button block clear color="button-default" tabSwitch="bills:preparation" dismissModal="true" *ngIf="assignmentsPrepared === false">
+      {{ 'bills.invoice.rejected.button' | translate }}
+    </button>
+  </ion-item>
+
+  <ion-item class="head">
+    <h5 head-5>{{ 'bills.invoice.number' | translate }}</h5>
+    <p>{{ details.number }}</p>
+  </ion-item>
+
+  <ion-item class="head">
+    <h5 head-5>{{ 'bills.invoice.total' | translate }}</h5>
+    <span class="total_sconto_hint" *ngIf="details.with_discount === 'true'">{{ 'bills.invoice.total-sconto-hint' | translate }}</span>
+    <p>
+      {{ details.total | toCurrency }}
+    </p>
+  </ion-item>
+
+  <ion-item class="head">
+    <h5 head-5>{{ 'bills.invoice.issued-at' | translate }}</h5>
+    <p>{{ details.issued_at | amDateFormat : 'DD-MM-YYYY' }}</p>
+  </ion-item>
+
+  <ion-item class="head">
+    <h5 head-5>{{ 'bills.invoice.status.label' | translate }}</h5>
+    <p>
+      {{ 'bills.invoice.status.' + details.state | translate }}
+      <span *ngIf="details.state === 'rejected'">({{ details.approval.comment }})</span>
+    </p>
+  </ion-item>
+
+  <ion-item class="head">
+    <h5 head-5>{{ 'bills.invoice.comment' | translate }}</h5>
+    <p>{{ details.comment }}</p>
+  </ion-item>
+
+  <ion-item text-wrap class="docs">
+    <h5 head-5>
+      {{ 'bills.invoice.document' | translate }}
+    </h5>
+    <ng-container *ngIf="details.document">
+      <document-item *ngIf="details.document.data" [document]="details.document.data" no-lines></document-item>
+    </ng-container>
+    <ion-spinner *ngIf="!details.document" center></ion-spinner>
+  </ion-item>
+
+  <ion-item text-wrap no-lines *ngIf="details.assignments">
+    <h5 head-5>
+      {{ 'bills.invoice.assignments' | translate }}
+    </h5>
+    <ion-item *ngFor="let assignment of details.assignments">
+      <p>{{ assignment.start_at | amDateFormat : 'DD.MM.YYYY' }}</p>
+      <ion-icon name="warning" item-end *ngIf="details.state === 'rejected' && !assignment.has_invoice_requirements"></ion-icon>
+    </ion-item>
+  </ion-item>
+
+  <submit-validator context="bills.invoice" [check]="{
+    assignments: assignmentsPrepared
+  }">
+  </submit-validator>
+  <button ion-button block color="button-primary" type="button" (click)="editInvoice()" *ngIf="details.state === 'rejected'">
+    {{ 'bills.invoice.edit' | translate }}
+  </button>
+</ion-content>

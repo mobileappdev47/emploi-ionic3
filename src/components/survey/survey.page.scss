@@ -1,0 +1,50 @@
+@import "../../theme/fonts";
+@import "../../theme/variables";
+
+page-survey {
+    ion-list-header {
+        padding: 0 !important;
+        margin: 20px 0 0 0 !important;
+        font-variant: small-caps;
+    }
+    .question {
+        ion-label {
+            margin: 0 !important;
+        }
+    }
+    .answer {
+        &:not(.boolean) {
+            max-height: 50px;
+            overflow-y: hidden;
+        }
+        .item-md .radio-md[item-left] {
+            margin-right: 10px;
+        }
+    }
+    .comment {
+        ion-label {
+            margin-top: 0 !important;
+            color: $text-color-light !important;
+            font-weight: 300 !important;
+            font-variant: all-small-caps !important;
+        }
+        ion-textarea {
+            font-size: 13px;
+        }
+    }
+    ion-item-group .comment.item-md:last-child, ion-item-group .comment.item-ios:last-child,
+    ion-item-group .answer.item-md:last-child, ion-item-group .answer.item-ios:last-child{
+        .item-inner {
+            border-bottom: 1px solid #dedede;;
+        }
+
+    }
+    .errors {
+        margin: 0 5px 10px -15px;
+        white-space: normal;
+        li {
+            color: color($colors, danger);
+            font-size: 12px;
+        }
+    }
+}

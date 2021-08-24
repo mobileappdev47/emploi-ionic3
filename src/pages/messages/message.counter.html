@@ -1,0 +1,6 @@
+<ion-item *ngIf="visible === 'always' || total > 0" (click)="open()">
+  {{ 'messages.counter' | translate : { total: total } }}
+  <ion-icon item-end name="chatbubbles" color="button-primary">
+    <ion-badge color="more">{{ total }}</ion-badge>
+  </ion-icon>
+</ion-item>

@@ -1,0 +1,19 @@
+<ion-content padding>
+  <button-back label="messages.buttons.cancel"></button-back>
+  <form (submit)="send()" #local="ngForm">
+    <ion-list inset no-lines>
+      <h3 head-3>{{ header.title }}</h3>
+      <p>{{ header.info }}</p>
+      <ion-item>
+        <ion-label stacked>{{ "messages.fields.subject" | translate }}</ion-label>
+        <ion-textarea name="subject" [(ngModel)]="message.subject" rows="3" required [readonly]="!editable.subject"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ "messages.fields.content" | translate }}</ion-label>
+        <ion-textarea  name="content" [(ngModel)]="message.content" [placeholder]="header.placeholder" required [readonly]="!editable.content"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <button ion-button full color="button-primary" [disabled]="!local.form.valid || processing">{{ 'messages.buttons.submit' | translate }}</button>
+  </form>
+
+</ion-content>

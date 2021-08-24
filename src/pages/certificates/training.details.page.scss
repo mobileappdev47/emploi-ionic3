@@ -1,0 +1,21 @@
+page-training-details {
+    .details {
+        padding-bottom: 10px;
+        .button-inner {
+            white-space: normal;
+            a {
+                text-decoration: none;
+            }
+        }
+        iframe, img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 10px 0px 15px 0px;
+        }
+        img:not([src]) {
+            min-height: 200px;
+            opacity: 0.1;
+        }
+    }
+}

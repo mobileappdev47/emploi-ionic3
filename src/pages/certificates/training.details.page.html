@@ -1,0 +1,16 @@
+<ion-content padding>
+  <button-back label="buttons.back"></button-back>
+
+  <ng-container *ngIf="certificate">
+    <h1 class="title">{{ certificate.name }}</h1>
+    <h3>{{ certificate.teaser }}</h3>
+    <p>{{ certificate.description }}</p>
+
+    <div class="details" [innerHTML]="training.content" #content></div>
+
+    <button *ngIf="!passed && training" color="button-primary" ion-button solid full (click)="startExam()">
+      {{ 'certificates.start-test' | translate }}
+    </button>
+  </ng-container>
+
+</ion-content>

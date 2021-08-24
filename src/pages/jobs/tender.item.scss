@@ -1,0 +1,37 @@
+@import "../../theme/mixins";
+
+tender-item, .tender-item { /* for job-card copied content as well */
+    display: block;
+    &.item {
+        padding-left: 0;
+    }
+    h3, p {
+        width: 100%;
+        display: block;
+    }
+    ion-row {
+        &.schedule {
+            font-size: 13px;
+            margin-top: 10px;
+            .col {
+                padding-left: 0;
+            }
+        }
+    }
+    .label-md, .label-ios {
+        margin: 5px 8px 5px 0;
+    }
+    ion-icon[name="warning"] {
+        color: color($colors, danger);
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+    .category {
+        margin-top:10px;
+        color: $text-color;
+    }
+    .head {
+        color: $text-color;
+    }
+}

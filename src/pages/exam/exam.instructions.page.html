@@ -1,0 +1,6 @@
+<ion-content padding>
+  <button-back label="buttons.back"></button-back>
+  <h6>{{ "exam.instruction.headline" | translate }}</h6>
+  <p [innerHTML]="'exam.instruction.description' | translate"></p>
+  <button color="button-primary" ion-button full (click)="startExam()">{{ "exam.buttons.next" | translate }}</button>
+</ion-content>

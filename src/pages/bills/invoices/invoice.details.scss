@@ -1,0 +1,26 @@
+
+invoice-details {
+    .head.rejected {
+        button {
+            margin-top: 10px;
+            height: 45px;
+            white-space: normal;
+        }
+    }
+    document-item {
+        ion-item {
+            border-top: none !important;
+            border-bottom: none !important;
+        }
+    }
+    ion-icon[name="warning"] {
+        font-size: 2rem;
+        color: color($colors, danger);
+    }
+    .item-md, .item-ios {
+        padding-left: 0;
+    }
+    .total_sconto_hint {
+        font-size: x-small;
+    }
+}

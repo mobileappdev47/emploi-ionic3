@@ -1,0 +1,58 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+document-item {
+    .item-md, .item-ios {
+        padding-left: 0;
+        border-top: solid #dedede 1px;
+        ion-thumbnail {
+            position: relative;
+            min-width: 60px;
+            width: 60px;
+            min-height: 40px;
+            height: 40px;
+            overflow: visible;
+            background-color: color($colors, gray);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-variant: all-small-caps;
+        }
+        &.item-block .item-inner {
+            border: none;
+        }
+        h2 {
+            height: 20px;
+        }
+        p {
+            color: $text-color-light;
+            padding-top: 2px;
+            line-height: 2.2rem;
+        }
+    }
+    &:last-of-type {
+        .item-md, .item-ios {
+            border-bottom: solid #dedede 1px;
+        }
+    }
+    &[action] {
+        ion-icon + ion-icon {
+            margin-left: 10px;
+        }
+    }
+    ion-icon {
+        font-size: 30px;
+    }
+    approval-info {
+        & > div {
+            min-height: 20px;
+            font-size: smaller;
+            span {
+                font-size: initial;
+            }
+        }
+    }
+    ion-item[no-lines] {
+        margin-top: -15px;
+    }
+}

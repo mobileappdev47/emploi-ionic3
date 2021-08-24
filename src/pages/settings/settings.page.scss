@@ -1,0 +1,15 @@
+@import "../../theme/variables";
+
+page-settings {
+    ion-icon[name="person"] {
+        color: $text-color-light;
+    }
+    ion-item, button {
+        &.item-md.item-block, &.item-ios.item-block {
+            border-bottom: solid $list-md-border-color 1px;
+            .item-inner {
+                border: none;
+            }
+        }
+    }
+}

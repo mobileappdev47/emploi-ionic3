@@ -1,0 +1,86 @@
+<ion-content padding>
+  <button-back label="bills.generate.buttons.cancel"></button-back>
+
+  <ion-item class="head" no-lines>
+    <h2 head-2>{{ 'bills.generate.title' | translate }}</h2>
+  </ion-item>
+
+  <form #form="ngForm">
+    <ion-item-group *ngFor="let assignment of assignments; let i = index;">
+      <ion-item class="head">
+        <h3 head-3>{{ assignment.start_at | amDateFormat : 'DD.MM.YYYY' }}</h3>
+      </ion-item>
+      <ion-item text-wrap>
+        <ion-label>{{ 'bills.generate.costs-on-time' | translate }}</ion-label>
+        <ion-input type="number" class="currency-input" [(ngModel)]="assignment.costs_on_time.value" validateCurrency [name]="'costs_on_time_' + i" required
+          [disabled]="assignment.costs_on_time.disabled">
+        </ion-input>
+      </ion-item>
+      <ion-item *ngIf="assignment.additional_costs">
+        <h5 head-5>{{ 'bills.generate.additional-costs' | translate }}</h5>
+        <ion-item-group>
+          <ion-item *ngFor="let cost of assignment.additional_costs" no-lines>
+            <ion-checkbox [(ngModel)]="cost.selected" [ngModelOptions]="{standalone: true}" item-start></ion-checkbox>
+            <p item-content>{{ cost.name }}</p>
+            <p item-end>{{ cost.value | toCurrency }}</p>
+          </ion-item>
+        </ion-item-group>
+      </ion-item>
+      <ion-item *ngIf="assignment.incentives">
+        <h5 head-5>{{ 'bills.generate.incentives' | translate }}</h5>
+        <ion-item-group>
+          <ion-item *ngFor="let incentive of assignment.incentives" no-lines>
+            <ion-checkbox [(ngModel)]="incentive.selected" [ngModelOptions]="{standalone: true}" item-start></ion-checkbox>
+            <p item-content>{{ 'bills.incentives.' + incentive.name | translate }}</p>
+            <p item-end>{{ incentive.value | toCurrency }}</p>
+          </ion-item>
+        </ion-item-group>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-row *ngIf="invoice.includes_taxes === 'true'">
+      <ion-item class="head">
+        <ion-label>{{ 'bills.generate.net' | translate }}</ion-label>
+        <div item-end>{{ total().net | toCurrency }}</div>
+      </ion-item>
+      <ion-item class="head">
+        <ion-label>{{ 'bills.generate.vat' | translate }}</ion-label>
+        <div item-end>{{ total().vat | toCurrency }}</div>
+      </ion-item>
+      <ion-item class="head">
+        <ion-label>{{ 'bills.generate.gross' | translate }}</ion-label>
+        <div item-end>{{ total().gross | toCurrency }}</div>
+      </ion-item>
+    </ion-row>
+
+    <ion-item class="head" *ngIf="invoice.includes_taxes === 'false'">
+      <ion-label>{{ 'bills.generate.total' | translate }}</ion-label>
+      <div item-end>{{ total().gross | toCurrency }}</div>
+    </ion-item>
+
+    <ion-item-group radio-group [(ngModel)]="addresses.selected" name="address-index" required>
+      <ion-item class="head" text-wrap no-lines>
+        {{ 'bills.generate.select-address' | translate }}
+      </ion-item>
+      <ng-container *ngIf="addresses.list">
+        <ion-item *ngFor="let address of addresses.list; let i = index;" text-wrap>
+          <ion-radio item-end [value]="i" mode="md"></ion-radio>
+          <address item-content>
+            <span>{{ address.address }}</span><br>
+            <span *ngIf="address.addressaddition">
+              {{ address.addressaddition }}<br>
+            </span>
+            <span>{{ address.zip }}</span> <span>{{ address.city }}</span><br>
+          </address>
+        </ion-item>
+      </ng-container>
+      <ion-item *ngIf="!addresses.list">
+        <ion-spinner></ion-spinner>
+      </ion-item>
+    </ion-item-group>
+
+    <button ion-button full color="button-primary" (click)="onGenerate()" [disabled]="!form.valid">
+      {{ 'bills.generate.buttons.generate' | translate }}
+    </button>
+  </form>
+</ion-content>

@@ -1,0 +1,6 @@
+<ion-tabs #tabs>
+  <ng-container *ngFor="let item of pages">
+    <ion-tab *ngIf="item.tab" [root]="item.component" [tabTitle]="item.title" [tabIcon]="item.icon" [enabled]="!item.disabled">
+    </ion-tab>
+  </ng-container>
+</ion-tabs>

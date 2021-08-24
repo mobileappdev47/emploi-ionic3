@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event);" #refresher [enabled]="!filterOpened">
+    <ion-refresher-content pulling-icon="ion-arrow-down-b positive" spinner="crescent" pullingText="{{ 'common.pull-to-refresh' | translate }}"
+      refreshingText="{{ 'common.refreshing' | translate }}">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <filter-bar [filters]="filters" context="bills.invoices" (on-apply)="filter($event)" (filter-opened)="onFilterOpened($event)"></filter-bar>
+
+  <ion-list no-lines *ngIf="items && items.length">
+    <invoice-item *ngFor="let entry of items" [invoice]="entry" (click)="showDetails(entry)"></invoice-item>
+    <ion-infinite-scroll (ionInfinite)="$event.waitFor(fetch(items, 10))" [enabled]="moreItems">
+      <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="{{ 'common.fetching-data' | translate }}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+
+  <nothing-found *ngIf="items && !items.length" context="bills.invoices.nothing-found" redirect="bills:invoice"></nothing-found>
+</ion-content>

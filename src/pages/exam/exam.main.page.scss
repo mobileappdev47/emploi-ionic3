@@ -1,0 +1,44 @@
+@import "../../theme/fonts";
+
+page-exam-main {
+    h6 {
+        padding-top: 4px;
+        font-size: 14px;
+        text-align: left
+    }
+    .choices {
+        font-size: 14px;
+    }
+    .question {
+        text-align: left;
+        font-size: medium;
+        text-transform: uppercase;
+        & + .text {
+            text-align: left;
+        }
+    }
+    ion-list {
+        .checkbox-md, .checkbox-ios {
+            margin-right: 20px !important;
+            .checkbox-icon {
+                width: 25px;
+                height: 25px;
+                border-radius: 15px;
+            }
+            .checkbox-checked .checkbox-inner {
+                height: 15px;
+                width: 8px;
+                left: 7px;
+                top: 1px;
+            }
+        }
+    }
+    ion-footer {
+        background-color: #fff;
+    }
+    ion-slide .slide-zoom:after {
+        content: ' ';
+        display: block;
+        height: 54px; // footer height
+    }
+}

@@ -1,0 +1,83 @@
+<ion-card tappable (click)="showDetails()" [ngClass]="status.class">
+  <ion-spinner></ion-spinner>
+  <ion-item-sliding #slidingItem>
+
+    <!-- copy of tender-item.html (almost, as without calendar part) as item-sliding requires ion-item child -->
+    <ion-item class="tender-item">
+      <ion-row class="head">
+        <h3 text-nowrap head-3>{{ job.shortTitle }}</h3>
+        <p text-nowrap>{{ job.client.name }}</p>
+        <ion-col>
+          <p class="category" *ngIf="job.category">
+            <ion-icon name="pricetag"></ion-icon>
+            <span>{{ 'common.categories.' + job.category | translate }}</span>
+          </p>
+        </ion-col>
+        <ion-col [class.mismatching]="!job.matching && (job.mismatched.contractType)" *ngIf="job.contract_type_identifier">
+          <p class="category">
+            <ion-icon name="paper"></ion-icon>
+            <span>{{ 'common.contract_types.' + job.contract_type_identifier | translate }}</span>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="schedule" light>
+        <ion-col col-12 normal>
+          <ion-icon name="ios-calendar-outline" medium></ion-icon>
+          <span *ngIf="job.tenders.length === 1">{{ job.range.dates.start | amDateFormat : 'DD MMMM, YYYY' }}</span>
+          <span *ngIf="job.tenders.length > 1">{{ 'jobs.dates' | translate : {
+            number: job.tenders.length,
+            start: (job.range.dates.start | amDateFormat : 'DD MMM'),
+            end: (job.range.dates.end | amDateFormat : 'DD MMM YYYY')
+          } }}</span>
+        </ion-col>
+        <ion-col col-6>
+          <ion-icon name="ios-clock-outline" medium></ion-icon>
+          {{ job.range.dates.start | amDateFormat : 'HH:mm' }} - {{ job.range.dates.end | amDateFormat : 'HH:mm' }}
+        </ion-col>
+        <ion-col col-6 text-right class="rates">
+          {{ job.range.rates.max | toCurrency }}
+        </ion-col>
+        <ion-col col-12 text-nowrap>
+          <ion-icon name="ios-home-outline" medium></ion-icon>
+          {{ job.site.name + (job.site.number ? ' | '+ job.site.number : '') }}
+        </ion-col>
+        <ion-col col-12 text-nowrap [class.mismatching]="!job.matching && (job.mismatched.location)">
+          <ion-icon name="ios-pin-outline" medium></ion-icon>
+          {{ job.site.zip + ' ' + job.site.city + ', ' + job.site.address }}
+        </ion-col>
+        <ion-col *ngIf="!job.matching && job.mismatched.certificates && job.mismatched.certificates.length" class="mismatching" col-12 text-nowrap>
+          <ion-icon name="ios-alert-outline" small></ion-icon>
+          {{ 'jobs.mismatched.certificates' | translate }}: {{ job.mismatched.certificates.length }}
+        </ion-col>
+        <ion-col *ngIf="job.offered && job.state" class="state {{ job.state }}" col-12 text-nowrap>
+          {{ 'jobs.offer.states.' + job.state | translate }}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item-options *ngIf="job.matching && !job.offered" side="left">
+      <button ion-button expandable (click)="accept($event, slidingItem)" color="success">
+        <div>
+          <ion-icon name="ios-thumbs-up"></ion-icon>
+          {{ 'jobs.buttons.accept' | translate }}
+        </div>
+      </button>
+    </ion-item-options>
+
+    <ion-item-options *ngIf="job.matching && !job.offered" side="right" [ngClass]="{pending: pending}">
+      <button ion-button expandable (click)="pending && cancel($event, slidingItem) || reject($event)" class="reject">
+        <div>
+          <ion-icon name="ios-thumbs-down"></ion-icon>
+          {{ 'jobs.buttons.reject' | translate }}
+        </div>
+        <div class="pending">
+          <ion-icon name="ios-refresh"></ion-icon>
+          {{ 'jobs.buttons.cancel' | translate }}
+          <ng-container *ngIf="pending">
+            <countdown-timer [time]="delay" label="jobs.offer.reject.countdown"></countdown-timer>
+          </ng-container>
+        </div>
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-card>

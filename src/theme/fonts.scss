@@ -1,0 +1,47 @@
+
+@font-face {
+    font-family: "Raleway";
+    src: url("#{$font-path}/Raleway-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    src: url("#{$font-path}/Raleway-Bold.ttf") format("truetype");
+}
+
+h2, h3, h4, h5 {
+    font-family: $didact-font;
+}
+
+p, div {
+    font-family: $default-font;
+}
+
+h2, h3, h4, h5, p, div {
+    color: $text-color;
+}
+
+*[light] {
+    color: $text-color-light;
+}
+
+[head-2] {
+    font-size: 28px !important;
+}
+
+[head-3] {
+    font-size: 25px !important;
+}
+
+[head-4] {
+    font-size: 25px !important;
+    font-variant: all-small-caps;
+    color: $text-color-light;
+}
+
+[head-5] {
+    font-size: 18px !important;
+}

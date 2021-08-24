@@ -1,0 +1,4 @@
+<ion-item [hidden]="isSubscribed === undefined">
+    <ion-label>{{ label | translate }}</ion-label>
+    <ion-toggle [(ngModel)]="isSubscribed" (ionChange)="handlePush()"></ion-toggle>
+</ion-item>

@@ -1,0 +1,10 @@
+filter-select {
+    display: block;
+    ion-select {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-right: 15px !important;
+        border: solid 1.5px #f4f4f4;
+        text-align: left;
+    }
+}

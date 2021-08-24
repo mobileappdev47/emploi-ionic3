@@ -1,0 +1,21 @@
+<ion-item>
+  <ion-thumbnail item-start>
+    {{ type }}
+  </ion-thumbnail>
+  <h2 text-nowrap>{{ document.original_filename }}</h2>
+  <p>
+    {{ document.size | filesize }}
+    <span *ngIf="downloading">({{ downloaded }}%)</span>
+  </p>
+  <p class="info" text-nowrap *ngIf="info">
+    {{ info }}
+  </p>
+  <div item-end [ngClass]="document.approval && document.approval.state">
+    <ion-icon name="{{ icons[action] }}" color="button-primary" [ngClass]="{hide: downloading || !action}"></ion-icon>
+    <ion-icon name="eye" color="button-primary" (click)="open($event)" [ngClass]="{hide: downloading}"></ion-icon>
+    <ion-spinner [ngClass]="{hide: !downloading}"></ion-spinner>
+  </div>
+</ion-item>
+<ion-item *ngIf="document.approval && document.approval.state !== 'pending'" no-lines>
+  <approval-info [approval]="document.approval"></approval-info>
+</ion-item>

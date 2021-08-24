@@ -1,0 +1,93 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #21b4b0,
+  success:    #8ae2e0,
+  warning:    #FBB829,
+  danger:     #dd4444,
+  light:      #f4f4f4,
+  dark:       #000000,
+  main:       #21b4b0,
+  sub:        #cad9d9,
+  more:       #21b4b0,
+  tab:        #bcede8,
+  gray:           #2c5065,
+  button-primary: #000,
+  button-default: #21b4b0,
+);
+
+// Text colors
+$text-color: color($colors, dark);
+$text-color-light: color($colors, dark);
+$text-color-superlight: color($colors, dark);
+
+// Custom buttons
+$button-disabled-background: #ccc;
+
+// Custom fonts
+$default-font: Raleway, sans-serif;
+$didact-font: Raleway, sans-serif;
+
+// Custom borders
+$card-border: solid #ccc 1px;
+$label-border: solid #dedede 1px;
+$border-radius: 10px;
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+$searchbar-ios-background-color: transparent;
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+$tabs-md-background: color($colors, tab);
+$tabs-md-tab-text-transform-active: none;
+$tabs-md-tab-font-size: 1rem;
+$tabs-md-tab-text-color-active: color($colors, primary);
+$tabs-md-tab-icon-color-active: $tabs-md-tab-text-color-active;
+$tabs-md-tab-icon-transform-active: none;
+
+$tabs-md-tab-color-inactive: color($colors, dark);
+$tabs-md-tab-opacity: 1;
+
+$tabs-ios-background: color($colors, tab);
+$tabs-ios-tab-text-transform-active: none;
+$tabs-ios-tab-font-size: 1rem;
+$tabs-ios-tab-text-color-active: color($colors, primary);
+$tabs-ios-tab-icon-color-active: $tabs-md-tab-text-color-active;
+$tabs-ios-tab-icon-transform-active: none;
+$tabs-ios-tab-color-inactive: color($colors, dark);
+$tabs-ios-tab-opacity: 1;
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here

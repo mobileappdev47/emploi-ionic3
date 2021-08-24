@@ -1,0 +1,15 @@
+@import "../../../theme/variables";
+
+page-preparation {
+    tender-item {
+        margin: 15px;
+        border: $card-border !important;
+        border-width: 1px !important;
+        ion-thumbnail.cal-date {
+            margin: 8px 0 !important;
+            small {
+                bottom: -5px;
+            }
+        }
+    }
+}

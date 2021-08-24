@@ -1,0 +1,14 @@
+submit-validator {
+    display: none;
+    &.submitting {
+        display: block;
+    }
+    & > div {
+        color: red;
+    }
+    & + button {
+        &.disabled {
+            opacity: 0.4;
+        }
+    }
+}

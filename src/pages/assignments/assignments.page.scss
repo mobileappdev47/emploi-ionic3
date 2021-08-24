@@ -1,0 +1,24 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+page-assignments {
+    .not-found {
+        height: 100%;
+        & > div {
+            padding-top: 50%;
+        }
+        ion-icon {
+            display: block;
+            font-size: 70px;
+        }
+        .item-md, .item-ios  {
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        ion-label {
+            color: $text-color-superlight;
+            line-height: 1.8;
+            padding-bottom: 5px;
+        }
+    }
+}

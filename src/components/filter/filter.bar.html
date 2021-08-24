@@ -1,0 +1,44 @@
+<div class="background" [ngClass]="{opened: opened}" (click)="close()"></div>
+<ion-card [ngClass]="{opened: opened}">
+  <div class="filtered" [ngClass]="{active: filtered && filtered.length}">
+    {{ context + '.filters.active' | translate }} - {{ filtered }}
+  </div>
+  <button class="open" ion-button icon-only outline float-right  (click)="open()">
+    <ion-icon name="search"></ion-icon>
+  </button>
+  <button class="close" ion-button icon-only outline float-right (click)="close()">
+    <ion-icon name="close"></ion-icon>
+  </button>
+  <div padding>
+    <form (ngSubmit)="apply()">
+      <ng-container *ngFor="let key of filters | keys">
+        <h3>{{ context + '.filters.' + key + '.label' | translate }}</h3>
+        <filter-search *ngIf="filters[key].type === 'search'"
+          [name]="key" [context]="context" [set]="filters[key].set" (init)="init(key, $event)" (action)="set(key, $event)">
+        </filter-search>
+        <filter-date-range *ngIf="filters[key].type === 'daterange'"
+          [name]="key" [context]="context" [set]="filters[key].set" (init)="init(key, $event)" (action)="set(key, $event)">
+        </filter-date-range>
+        <filter-range *ngIf="filters[key].type === 'range'"
+          [name]="key" [context]="context" [set]="filters[key].set" (init)="init(key, $event)" (action)="set(key, $event)">
+        </filter-range>
+        <filter-select *ngIf="filters[key].type === 'select'"
+          [name]="key" [context]="context" [set]="filters[key].set" [options]="filters[key].options" [none]="filters[key].options"
+          (init)="init(key, $event)" (action)="set(key, $event)">
+        </filter-select>
+        <filter-buttons *ngIf="filters[key].type === 'buttons'"
+          [name]="key" [context]="context" [set]="filters[key].set" [options]="filters[key].options"
+          (init)="init(key, $event)" (action)="set(key, $event)">
+        </filter-buttons>
+      </ng-container>
+      <ion-buttons>
+        <button type="submit" ion-button float-right color="button-primary" solid small>
+          {{ 'buttons.apply' | translate }}
+        </button>
+        <button type="button" ion-button clear float-right color="primary" small (click)="clear()">
+          {{ 'buttons.clear' | translate }}
+        </button>
+      </ion-buttons>
+    </form>
+  </div>
+</ion-card>

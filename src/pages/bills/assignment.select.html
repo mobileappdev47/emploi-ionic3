@@ -1,0 +1,12 @@
+<ion-item-group>
+  <ion-item *ngFor="let assignment of assignments">
+    <ion-label>{{ assignment.start_at | amDateFormat : 'DD.MM.YYYY' }}</ion-label>
+    <ion-checkbox [disabled]="disabled[assignment.id]" [(ngModel)]="chosen[assignment.id]" (ionChange)="onToggle()"></ion-checkbox>
+    <div *ngIf="action && (!action.enabled || action.enabled(assignment))" ngClass="{'has-button': action.handler}" item-end>
+      <span *ngIf="action.info">{{ action.info(assignment) }}</span>
+      <button ion-button item-end outline *ngIf="action.handler" [attr.disabled]="!chosen[assignment.id] || undefined" (click)="action.handler(assignment)">
+        {{ action.label }}
+      </button>
+    </div>
+  </ion-item>
+</ion-item-group>

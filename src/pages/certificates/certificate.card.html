@@ -1,0 +1,24 @@
+<ion-card text-wrap tappable (click)="showDetails(certificate.id)">
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img [pictureLoad]="certificate.picture_id" pictureType="icon">
+    </ion-thumbnail>
+    <ion-row>
+      <h3 text-nowrap head-3> {{ certificate.name }} </h3>
+    </ion-row>
+    <ion-row>
+      <p> {{ certificate.teaser }} </p>
+    </ion-row>
+    <ion-row light class="footer">
+      <ion-col col-6>
+        <ion-icon name="pricetag" medium></ion-icon>
+        {{ 'certificates.categories.' + certificate.category | translate }}
+      </ion-col>
+      <ion-col>
+        <button *ngIf="certificate.job_count_by_tenders > 0" class="jobs" ion-button clear small>
+          {{ 'certificates.card.jobs' | translate : certificate }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-card>

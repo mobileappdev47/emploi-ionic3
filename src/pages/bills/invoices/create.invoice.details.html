@@ -1,0 +1,115 @@
+<ion-content padding>
+  <button-back label="bills.invoice.back"></button-back>
+
+  <ion-item class="head" no-lines>
+    <h2 head-2>{{ 'bills.invoice.title.' + (invoice.id ? 'edit' : 'create') | translate }}</h2>
+  </ion-item>
+
+  <form #form="ngForm" (ngSubmit)="upload === 'generated' && !invoice.generated ? onGenerate() : onSubmit()">
+    <ion-item class="head">
+      <ion-label floating>
+        <ion-icon name="card"></ion-icon>
+        {{ 'bills.invoice.number' | translate }}
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="invoice.number" name="number" [disabled]="invoice.generated" required></ion-input>
+    </ion-item>
+
+    <ion-item class="head">
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon>
+        {{ 'bills.invoice.issued-at' | translate }}
+      </ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="invoice.issued_at" name="issued_at"
+        [doneText]="'done' | translate" [cancelText]="'cancel' | translate" disabled>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-list radio-group [(ngModel)]="invoice.includes_taxes" name="includes_taxes" required>
+      <ion-row>
+        <ion-item no-lines>
+          {{ 'bills.invoice.tax.label' | translate }}
+          <ion-icon item-end name="information-circle" color="primary" tappable (click)="info('tax')"></ion-icon>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item no-lines>
+            <ion-label>{{ 'bills.invoice.tax.with' | translate }}</ion-label>
+            <ion-radio item-left value="true" [disabled]="invoice.generated" mode="md"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding>
+          <ion-item no-lines>
+            <ion-label>{{ 'bills.invoice.tax.without' | translate }}</ion-label>
+            <ion-radio item-left value="false" [disabled]="invoice.generated" mode="md"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+    <ion-item>
+      <ion-label>{{ 'bills.invoice.discount.label' | translate }}</ion-label>
+      <ion-toggle [(ngModel)]="invoice.with_discount" name="with_discount" [disabled]="invoice.generated"></ion-toggle>
+      <ion-icon item-end name="information-circle" color="primary" (click)="info('discount')"></ion-icon>
+    </ion-item>
+
+    <ion-item class="head">
+      <ion-label floating>{{ 'bills.invoice.comment' | translate }}</ion-label>
+      <ion-textarea [(ngModel)]="invoice.comment" name="comment"></ion-textarea>
+    </ion-item>
+
+    <ion-item class="docs" no-lines>
+      <h5 head-5>{{ 'bills.invoice.document' | translate }}</h5>
+    </ion-item>
+
+    <ion-list class="generate" no-lines radio-group required [(ngModel)]="upload" name="upload">
+      <ion-row>
+        <ion-col no-padding col-6>
+          <ion-item text-wrap>
+            <ion-label>{{ 'bills.invoice.upload.generate' | translate }}</ion-label>
+            <ion-radio item-left value="generated" [disabled]="invoice.generated" mode="md"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-6>
+          <ion-item text-wrap>
+            <ion-label>{{ 'bills.invoice.upload.own' | translate }}</ion-label>
+            <ion-radio item-left value="own" [disabled]="invoice.generated" mode="md"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+
+    <ion-item *ngIf="upload === 'own' || document" text-wrap no-lines>
+      <document-item *ngIf="document" [document]="document"></document-item>
+      <file-upload *ngIf="upload === 'own'" (uploaded)="onUpload($event)" [button]="document ? 'optional' : ''" [label]="'bills.invoice.upload.button'">
+      </file-upload>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <h5 head-5>{{ 'bills.invoice.assignments' | translate }}</h5>
+      <assignment-select [(selected)]="selected" [assignments]="job.assignments" [action]="summary" [disabled]="invoice.generated">
+      </assignment-select>
+    </ion-item>
+
+    <ion-item class="head sum" *ngIf="upload === 'own' || invoice.generated">
+      <ion-label floating>
+        <ion-icon name="logo-euro"></ion-icon>{{ 'bills.invoice.total' | translate }}
+      </ion-label>
+      <ion-input type="number" [(ngModel)]="invoice.total" name="total"
+         validateCurrency
+         [required]="upload === 'own'" [disabled]="upload === 'generated'">
+      </ion-input>
+    </ion-item>
+
+    <submit-validator context="bills.invoice" [form]="form" [check]="{
+        validity: form.value,
+        document: upload === 'own' ? invoice.document_id > 0 : undefined,
+        selected: selected ? selected.length > 0 : undefined,
+        assignments: checkSelectedAssignments()
+      }">
+    </submit-validator>
+    <button ion-button full color="button-primary" type="button" [disabled]="processing">
+      {{ 'bills.invoice.buttons.' + (upload === 'generated' && !invoice.generated ? 'generate' : 'submit') | translate }}
+    </button>
+  </form>
+</ion-content>

@@ -1,0 +1,86 @@
+
+@mixin ion-card-p4y {
+    border: $card-border;
+    &.card-md, &.card-ios {
+        margin: 15px;
+        width: calc(100% - 30px);
+        box-shadow: none;
+        ion-thumbnail[item-start] {
+            margin: 8px 5px 8px 0;
+        }
+        .item-md.item-block, .item-ios.item-block {
+            padding-left: 5px;
+            .item-inner {
+                border-left: $card-border;
+                padding-left: 10px;
+            }
+        }
+        h2, h5, p {
+            -color: $text-color;
+        }
+    }
+    &:not(.processing) {
+        & > ion-spinner {
+            display: none;
+        }
+    }
+    &.processing {
+        pointer-events: none;
+        position: relative;
+        ion-spinner {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            opacity: 0.8;
+
+        }
+    }
+}
+
+@mixin overflow-ellipsis {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+@mixin line-ellipsis($lines) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+@mixin text-outline($color) {
+    text-shadow: -1px -1px 2px $color, 1px -1px 2px $color, -1px 1px 2px $color, 1px 1px 2px $color;
+}
+
+@mixin slide-animation {
+    .slide-in-right {
+        transform: translate3d(100%, 0, 0);
+    }
+
+    .slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+        transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+    }
+
+    .slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+        transition: all ease-in-out 250ms;
+    }
+}

@@ -1,0 +1,5 @@
+<ion-content>
+  <ion-tabs tabsPlacement="top" #subtabs>
+    <ion-tab *ngFor="let page of tabs | values" tabTitle="{{ page.title | translate }}" [tabIcon]="page.icon" [root]="page.component" [rootParams]="page.params"></ion-tab>
+  </ion-tabs>
+</ion-content>

@@ -1,0 +1,28 @@
+assignment-select {
+    div[item-end] {
+        margin: 0 8px 0 0 !important;
+        & > span {
+            color: $text-color-light;
+            display: inline-block;
+            font-size: 1.4rem;
+        }
+        &.has-button > span {
+            transform: translateY(0.5rem);
+        }
+    }
+    .item-checkbox-disabled {
+        .checkbox-disabled {
+            opacity: 1;
+            .checkbox-icon {
+                border-color: $text-color-superlight;
+                &.checkbox-checked {
+                    background-color: $text-color-superlight;
+                }
+            }
+        }
+        ion-label {
+            opacity: 1 !important;
+            color: $text-color-superlight;
+        }
+    }
+}

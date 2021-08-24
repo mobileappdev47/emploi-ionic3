@@ -1,0 +1,55 @@
+<ion-content padding>
+
+  <button-back label="survey.abort"></button-back>
+
+  <h4>{{ 'survey.' + instance.type + '.title' | translate }} </h4>
+  <p>{{ 'survey.' + instance.type + '.description' | translate }} </p>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit()" no-lines>
+    <ion-item-group *ngFor="let item of instance.questions; let i = index;" no-lines>
+      <ion-list-header no-lines>{{ 'survey.' + instance.type + '.question' | translate : { num: i + 1 } }}</ion-list-header>
+      <ion-item text-wrap no-lines no-padding class="question">{{ item.question }}</ion-item>
+      <ion-item *ngIf="item.type === 'boolean'" no-lines class="answer" no-padding>
+        <ion-grid item-content>
+          <ion-row radio-group [(ngModel)]="item.answer" [name]="'answer-' + i" required>
+            <ion-col col-6>
+              <ion-item no-lines>
+                <ion-label>{{ 'survey.' + instance.type + '.answer.true' | translate }}</ion-label>
+                <ion-radio value="true" mode="md" item-left></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6>
+              <ion-item no-lines>
+                <ion-label>{{ 'survey.' + instance.type + '.answer.false' | translate }}</ion-label>
+                <ion-radio value="false" mode="md" item-left></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item *ngIf="item.type === 'string'" class="answer" no-padding>
+        <ion-label stacked color="gray">{{ 'survey.' + instance.type + '.answer.label' | translate : { num: i + 1 } }}</ion-label>
+        <ion-textarea [(ngModel)]="item.answer" [name]="'answer-' + i" required
+            [placeholder]="'survey.' + instance.type + '.answer.required' | translate">
+        </ion-textarea>
+      </ion-item>
+      <ion-item *ngIf="item.type !== 'string'" class="comment" no-padding>
+        <ion-label stacked color="gray">{{ 'survey.' + instance.type + '.comment.label' | translate : { num: i + 1 } }}</ion-label>
+        <ion-textarea [(ngModel)]="item.comment" [name]="'comment-' + i" [required]="disagreeCommentRequired(item)"
+            [placeholder]="disagreeCommentRequired(item) ? ('survey.' + instance.type + '.comment.required' | translate) : ''">
+        </ion-textarea>
+      </ion-item>
+    </ion-item-group>
+    <ion-item no-lines no-padding class="submit">
+      <submit-validator context="survey" [check]="{
+        'answer-missing': answersDone(),
+        'disagree-comment-missing': disagreeCommentsDone()
+      }">
+      </submit-validator>
+      <button ion-button color="button-primary" type="submit" block [disabled]="processing">
+        {{ 'survey.' + instance.type + '.submit' | translate }}
+      </button>
+    </ion-item>
+  </form>
+
+</ion-content>

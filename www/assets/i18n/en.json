@@ -1,0 +1,860 @@
+{
+    "CERTIFICATE": "ZERTIFIKATE",
+    "JOBS": "JOBS",
+    "CONTACT": "KONTAKT",
+    "LANGUAGE": "SPRACHE",
+    "JANUARY": "JANUAR",
+    "February": "FEBRUAR",
+    "March": "MÄRZ",
+    "April": "APRIL",
+    "May": "MAI",
+    "June": "JUNI",
+    "July": "JULI",
+    "August": "AUGUST",
+    "September": "SEPTEMBER",
+    "October": "OKTOBER",
+    "November": "NOVEMBER",
+    "December": "DEZEMBER",
+    "late_check_in":"Verspätete Check-in",
+    "check_in":"Check-in",
+    "close":"schließen",
+    "push_notification":"Push-Benachrichtigung",
+    "terms_and_conditions":"Geschäftsbedingungen",
+    "all_certificates":"Alle Zertifikate",
+    "my_certificate":"Meine Zertifikate",
+    "all_certs_intro":"Hier können Sie lernen, effizienter zu sein und sich selbst für mehr Jobs zu bewerben. Glückliches Lernen!",
+    "my_certs_intro":"Hier finden Sie Ihre Zertifikate, die Sie bestanden haben.",
+    "contact": "Kontakt",
+    "subject":"Betreff",
+    "message":"Nachricht",
+    "submit":"Absenden",
+    "head_office":"Hauptbüro",
+    "yes":"Ja",
+    "cancel":"Abbrechen",
+    "loading_content":"Laden, bitte warten!",
+    "authenticating":"Authentifizieren..",
+    "dismiss":"entlassen",
+    "from":"von",
+    "to":"bis",
+    "on":"Am",
+    "done": "Anwenden",
+    "api": {
+        "errors": {
+            "tokenExpired": "Token ist abgelaufen und kann nicht mehr verwendet werden, bitte melde dich erneut an.",
+            "Token has expired": "Token ist abgelaufen und kann nicht mehr verwendet werden, bitte melde dich erneut an."
+        }
+    },
+
+    "app": {
+        "update": {
+            "title": "Update notwendig",
+            "message": "Entschuldigung, aber deine App ist nicht mehr aktuell. Bitte lade die neuste App aus dem Store herunter.",
+            "buttons": {
+                "link": "Im Store öffnen"
+            }
+        },
+        "maintenance": {
+            "title": "Wartungsfenster des Portals",
+            "headline": "Wartungsfenster des Portals",
+            "start": "Beginn",
+            "end": "geplantes Ende",
+            "ad-hoc": "ungeplant",
+            "message": "Wartung aufgrund \"{reason}\"<div><span>Beginn: </span>{startAt}</div><div><span>geplantes Ende: </span>{endAt}</div>",
+            "buttons": {
+                "link": "OK"
+            }
+        },
+        "network-issue": {
+            "title": "Netzwerkproblem",
+            "message": "Scheint, dass das Netzwerk oder der Dienst nicht verfügbar ist. Überprüfe deine Netzwerkeinstellungen.",
+            "buttons": {
+                "link": "Versuch es noch einmal"
+            }
+        }
+    },
+
+    "common": {
+        "none": "Keine",
+        "system": "System",
+        "fetching-data": "Daten abrufen",
+        "remaining": "verbleibend",
+        "late": "spät",
+        "pull-to-refresh": "Ziehen zum Aktualisieren",
+        "refreshing": "Daten abrufen",
+        "nothing-found": "Nichts gefunden",
+        "countdown": "Auslösen in",
+        "seconds": "Sekunden",
+        "gender": {
+            "null": "",
+            "M": "Herr",
+            "F": "Frau"
+        },
+        "approval": {
+            "accepted": {
+                "title": "Akzeptiert",
+                "message": "{time}<br>{comment}",
+                "buttons": {
+                    "confirm": "OK"
+                },
+                "info": "Akzeptiert {hasComment, plural, =1{({comment})} other{}}"
+            },
+            "rejected": {
+                "title": "Abgelehnt",
+                "message": "{time}<br>{comment}",
+                "buttons": {
+                    "confirm": "OK"
+                },
+                "info": "Abgelehnt ({comment})"
+            }
+        },
+        "categories": {
+            "label": "Kategorie",
+            "none": "Keine",
+            "fragrance": "Duft",
+            "care": "Pflege",
+            "visa": "Visa",
+            "cabin": "Kabine",
+            "spray": "Sprayeinsatz",
+            "flyer": "Flyer",
+            "wrap": "Einpackservice",
+            "teasing": "Teasing"
+        },
+        "contract_types": {
+            "freelancer": "Gewerbeschein",
+            "tax_card": "Lohnsteuerkarte"
+        }
+    },
+
+    "buttons": {
+        "confirm": "OK",
+        "cancel": "Abbrechen",
+        "back": "Zurück",
+        "apply": "Anwenden",
+        "clear": "Löschen"
+    },
+
+    "auth": {
+        "error": "Authentifizierungsfehler",
+        "login": {
+            "email-placeholder": "E-Mail",
+            "password-placeholder": "Passwort",
+            "password-forgotten": "Passwort vergessen?",
+            "show-password": "Passwort anzeigen",
+            "button": "Anmelden"
+        },
+        "logout": {
+            "action": "Ausloggen",
+            "confirm": "Bist du sicher, dass du dich ausloggen möchtest?",
+            "buttons": {
+                "confirm": "Ja",
+                "cancel": "Abbrechen"
+            }
+        },
+        "reset": {
+            "email-placeholder": "E-Mail-Addresse",
+            "check-credentials": "Bitte überprüfe die Anmeldedaten.",
+            "info": "Bitte gebe deine registrierte E-Mail-Adresse an, um dein Passwort zurückzusetzen. Dann wird ein Link zur Bestätigung an deine E-Mail-Adresse gesendet.",
+            "sent": "Der Link zum Bestätigen wurde an deine E-Mail-Adresse gesendet.",
+            "done": "Gesendet",
+            "failed": "Authorisierungsfehler",
+            "buttons": {
+                "confirm": "OK",
+                "back": "Zurück"
+            }
+        }
+    },
+
+    "errors": {
+        "general": "Etwas ist schief gelaufen, bitte versuche es später noch einmal.",
+        "login-failed": "Anmeldung fehlgeschlagen!",
+        "network-failure": "Netzwerkfehler",
+        "download-failed": "Download fehlgeschlagen",
+        "upload-failed": "Hochladen fehlgeschlagen",
+        "invalid_credentials": "Ungültige Anmeldedaten.",
+        "not_confirmed_registration": "Registrierung noch nicht bestätigt. Bitte schaue in dein Postfach und klicke auf den Link zur Bestätigung."
+    },
+
+    "warnings": {
+        "login-restricted": "Eingeschränkter Zugriff",
+        "onboarding-login": "Du hast nur eingeschränkten Zugriff, da du dich noch im Onboarding befindest."
+    },
+
+    "files": {
+        "upload": {
+            "inprogress": "Hochladen - {progress}%...",
+            "select": {
+                "title": "Datei auswählen",
+                "warning": "Du musst den Zugriff auf deine Dateien und Kamera erlauben.",
+                "error": "Auswahl fehlgeschlagen",
+                "localstorage": "aus Dateien",
+                "camera": "von der Kamera"
+            }
+        }
+    },
+
+    "profile": {
+        "deactivated": {
+            "title": "Dein Konto wurde deaktiviert."
+        },
+        "contract_types": {
+            "title": "Vertragsarten:"
+        }
+    },
+
+    "assignments": {
+        "tab-name": "Meine Jobs",
+        "header": {
+            "today": "Heute",
+            "now": "Jetzt",
+            "late": "Du bist leider zu spät.",
+            "checkedin": "Super, du bist eingecheckt.",
+            "checkedout": "Schönen Feierabend.",
+            "prepared": "Schönen Feierabend.",
+            "invoiced": "Schönen Feierabend.",
+            "done": "Schönen Feierabend."
+        },
+        "nothing-found": {
+            "headline": "Hallo {firstname}!",
+            "message": "Keine Jobs? Zeit dich zu bewerben.",
+            "button": "Zu den Angeboten"
+        },
+        "buttons": {
+            "check-in": "Check-In",
+            "late-check-in": "Verspäteter Check-In",
+            "check-out": "Check-Out",
+            "upload-report": "Einsatzbericht hochladen",
+            "create-invoice": "Rechnung erstellen",
+            "invoice-details": "Rechnung ansehen",
+            "confirm": "OK",
+            "cancel": "Abbrechen"
+        },
+        "details": {
+            "description": "Beschreibung",
+            "briefing": "Allgemeines Briefing",
+            "contact": "Verantwortlicher Agent",
+            "back": "Meine Jobs",
+            "documents": {
+                "headline": "Dokumente",
+                "description": {
+                    "none": "Es sind keine Dokumente beigefügt.",
+                    "exists": "Öffne das Dokument um es zu lesen."
+                }
+            },
+            "additional": "Info",
+            "incentives": {
+                "label": "Pauschalen",
+                "checkin": "Bei Anmeldung",
+                "sales_report": "Umsatzmeldung",
+                "picture_documentation": "Foto-Dokumentation"
+            },
+            "costs": {
+                "label": "Vergütung"
+            },
+            "wage": "Stundensatz",
+            "fees":  "Mögliches Honorar"
+        },
+        "check-in": {
+            "title": "Check-In",
+            "message": "Bist du sicher, dass du bei {siteName} einchecken willst?"
+        },
+        "late-check-in": {
+            "title": "Verspäteter Check-In",
+            "message": "Bist du sicher, dass du bei {siteName} einchecken willst?",
+            "via-sms": {
+                "button": "SMS senden",
+                "message": "Hallo {agentName}, ich habe {jobName} um {time} eingecheckt.\n\n{freelancerName}"
+            },
+            "via-whatsapp": {
+                "button": "WhatsApp",
+                "message": "Hallo {agentName}, ich habe {jobName} um {time} eingecheckt.\n\n{freelancerName}"
+            }
+        },
+        "check-out": {
+            "title": "Check-Out",
+            "message": "Bist du sicher, dass du bei {siteName} auschecken willst?"
+        }
+    },
+    "offers": {
+        "filters": {
+            "active": "Gefilterte Angebote",
+            "search": {
+                "short": "Suche",
+                "label": "Jobname, Einsatzort oder Filiale",
+                "placeholder": "mind. 3 Zeichen"
+            },
+            "state": {
+                "label": "Status des Angebots",
+                "short": "Status"
+            },
+            "contractType": {
+                "label": "Vertragstyp"
+            }
+        },
+        "nothing-found": {
+            "headline": "",
+            "message": "Keine von dir abgegebenen Angebote gefunden.",
+            "button": "Zu den Jobangeboten"
+        }
+    },
+    "jobs": {
+        "tab-name": "Angebote",
+        "matched": "Meine Jobangebote",
+        "unmatched": "Weitere Jobangebote",
+        "offers": "Abgegebene Angebote",
+        "dates": "{number} Termine vom {start} bis {end}",
+        "done": "{done} von {all} Einsätzen bearbeitet",
+        "nothing-found": {
+            "headline": "",
+            "message": "Keine passenden Jobs verfügbar.",
+            "button": "Zu den Zertifikaten"
+        },
+        "filters": {
+            "active": "Gefilterte Jobs",
+            "search": {
+                "short": "Suche",
+                "label": "Jobname, Einsatzort oder Filiale",
+                "placeholder": "mind. 3 Zeichen"
+            },
+            "dates": {
+                "short": "Termine",
+                "label": "Termine",
+                "start-placeholder": "von",
+                "end-placeholder": "bis"
+            },
+            "postcodes": {
+                "short": "Postleitzahl",
+                "label": "Postleitzahl des Einsatzortes",
+                "min-placeholder": "von",
+                "max-placeholder": "bis"
+            },
+            "certificate": {
+                    "short": "Zertifikate",
+                    "label": "Zertifikate"
+            },
+            "state": {
+                "label": "Status des Angebots",
+                "short": "Status"
+            },
+            "contractType": {
+                "label": "Vertragstyp"
+            }
+        },
+        "details": {
+            "description": "Beschreibung",
+            "briefing": "Allgemeines Briefing",
+            "dates": "Termine",
+            "back": "Angebote"
+        },
+        "buttons": {
+            "select-all": "Alle auswählen",
+            "accept": "Angebot abgeben",
+            "reject": "Ausschreibung ablehnen",
+            "cancel": "Rückgängig"
+        },
+        "offer": {
+            "question": {
+                "button": "Du hast noch eine Frage?",
+                "create": "Frage zum Job '{title}'",
+                "title": "Rückfragen",
+                "info": "Du hast eine Frage zu den ausgewählten Ausschreibungen?",
+                "placeholder": "Gib hier bitte deine Frage ein.",
+                "sent": "Frage gesendet"
+            },
+            "accept": {
+                "title": "Angebot abgeben",
+                "message.single": "Bist du sicher, dass du ein verbindliches Angebot abgeben möchtest?",
+                "message.multi": "Bist du sicher, dass du ein verbindliches Angebot für {selected} Angebote abgeben möchtest?",
+                "success": "Angebot erfolgreich abgegeben."
+            },
+            "reject": {
+                "title": "Ausschreibungen ablehnen",
+                "message.single": "Bist du sicher, dass du dieses Angebot ablehnen möchtest?",
+                "message.multi": "Bist du sicher, dass du diese Angebote ablehnen möchtest?",
+                "countdown": "Ablauf in",
+                "success": "Ausschreibung abgelehnt"
+            },
+            "buttons": {
+                "cancel": "Abbrechen",
+                "confirm": "Bestätigen"
+            },
+            "info": {
+                "legal-blocked": "Du kannst keine Angebote abgeben, da uns noch Unterlagen von dir fehlen oder diese von uns noch nicht geprüft wurden.",
+                "gtc-blocked": "Du kannst keine Angebote abgeben, du hast die neuen AGB noch nicht akzeptiert.",
+                "pending": "Wir prüfen aktuell deine Angaben zu diesem Vertragstyp. Du kannst wieder Angebote abgeben, sobald wir deine Änderungen geprüft haben."
+            },
+            "states": {
+                "pending": "In Arbeit",
+                "declined": "Abgelehnt"
+            }
+        },
+        "mismatched": {
+            "title": "Nicht übereinstimmende Kriterien",
+            "certificates": "Fehlende Zertifikate",
+            "cities": "Städte",
+            "zip": "Postleitzahl",
+            "location": "Standort",
+            "unmatched-location":"Nicht übereinstimmende Stadt oder Postleitzahl.",
+            "contractType": "Nicht übereinstimmender Vertragstyp",
+            "buttons": {
+                "cancel": "Abbrechen"
+            }
+        }
+    },
+
+    "bills": {
+        "tab-name": "Rechnungen",
+        "incentives": {
+            "checkin": "Anmeldung am Einsatztag",
+            "sales_report": "Umsatzmeldung eingereicht",
+            "picture_documentation": "Foto-Dokumentation eingereicht"
+        },
+        "preparation": {
+            "tab-name": "Vorbereitung",
+            "details": {
+                "templates": {
+                    "headline": "Vorlagen",
+                    "description": "Vorlagen herunterladen, ausfüllen, ausdrucken und unterschrieben wieder hochladen."
+                },
+                "feedback": {
+                    "headline": "Feedback",
+                    "description": "",
+                    "button": {
+                        "add": "Feedback beantworten",
+                        "edit": "Feedback bearbeiten"
+                    },
+                    "submit": {
+                        "success": "Das Feedback wurde gespeichert.",
+                        "error": "Das Feedback konnte nicht gespeichert werden."
+                    }
+                },
+                "questionnaire": {
+                    "headline": "Stellungnahme",
+                    "description": "Bevor du den Einsatzbericht und die Umsatzmeldung eingeben kannst, benötigen wir von dir noch einige Angaben.",
+                    "button": {
+                        "add": "Stellungnahme abgeben",
+                        "edit": "Stellungnahme bearbeiten"
+                    },
+                    "submit": {
+                        "success": "Die Angaben wurden gespeichert.",
+                        "error": "Die Angaben konnten nicht gespeichert werden."
+                    }
+                },
+                "report": {
+                    "headline": "Einsatzbericht",
+                    "document": "Dokument",
+                    "upload": "Datei hochladen",
+                    "update": "Datei austauschen",
+                    "save": "Speichern",
+                    "confirm": {
+                        "title": "Speichern?",
+                        "message": "Möchtest Du den Einsatzbericht speichern?"
+                    },
+                    "buttons": {
+                        "confirm": "Speichern",
+                        "cancel": "Abbrechen"
+                    },
+                    "submit": {
+                        "success": "Einsatzbericht eingereicht"
+                    },
+                    "remove": {
+                        "confirm": {
+                            "title": "Löschen?",
+                            "message": "Möchtest Du den Einsatzbericht löschen?"
+                        },
+                        "buttons": {
+                            "confirm": "Löschen",
+                            "cancel": "Abbrechen"
+                        },
+                        "success": "Einsatzbericht gelöscht"
+                    }
+                },
+                "picture-documentation": {
+                    "headline": "Fotodokumentation",
+                    "document": "Dokument",
+                    "upload": "Datei hochladen",
+                    "update": "Datei austauschen",
+                    "confirm": {
+                        "title": "Speichern?",
+                        "message": "Möchtest Du das Foto speichern?"
+                    },
+                    "buttons": {
+                        "confirm": "Speichern",
+                        "cancel": "Abbrechen"
+                    },
+                    "submit": {
+                        "success": "Fotodokumentation eingereicht"
+                    },
+                    "remove": {
+                        "confirm": {
+                            "title": "Löschen?",
+                            "message": "Möchtest Du das Foto löschen?"
+                        },
+                        "buttons": {
+                            "confirm": "Löschen",
+                            "cancel": "Abbrechen"
+                        },
+                        "success": "Fotodokumentation gelöscht"
+                    }
+                },
+                "revenue": {
+                    "headline": "Umsatzmeldung",
+                    "add": "Umsatzmeldung hinzufügen",
+                    "set": "Speichern",
+                    "total": "Gesamt",
+                    "none": "Nicht vorhanden",
+                    "comment": "Kommentar"
+                },
+                "back": "Abbrechen",
+                "close": "Fertig"
+            },
+            "submit": {
+                "success": "Einsatzbericht eingereicht",
+                "revenue.success": "Umsatzmeldung eingereicht"
+            },
+            "nothing-found": {
+                "headline": "",
+                "message": "Du hast keine Jobs zur Vorbereitung.",
+                "button": "Zu den Angeboten"
+            }
+        },
+        "invoices": {
+            "tab-name": "Überblick",
+            "submit": "Einsenden",
+            "job": "Job",
+            "assignments": "{number} {number, select, 1{Termin <small>({from})</small>} other{Termine <br><small>({from} - {to})}}</small>",
+            "nothing-found": {
+                "headline": "",
+                "message": "Du hast noch keine Rechnung erstellt.",
+                "button": "Erstelle eine Rechnung"
+            },
+            "back": "Zurück",
+            "states": {
+                "issued": "In Bearbeitung",
+                "approved": "Freigegeben",
+                "payment-authorized": "Zahlung angewiesen",
+                "money-transfered": "Zahlung erfolgt",
+                "rejected": "Zurückgewiesen"
+            },
+            "filters": {
+                "active": "Gefilterte Rechnungen",
+                "search": {
+                    "short": "Suche",
+                    "label": "Rechnungsnummer und Kommentar",
+                    "placeholder": "mind. 3 Zeichen"
+                },
+                "dates": {
+                    "short": "Einsendedatum",
+                    "label": "Einsendedatum",
+                    "start-placeholder": "von",
+                    "end-placeholder": "bis"
+                },
+                "state": {
+                    "short": "Status",
+                    "label": "Status"
+                },
+                "contractType": {
+                    "label": "Vertragstyp"
+                }
+            }
+        },
+        "invoice": {
+            "tab-name": "Neue Rechnung",
+            "title": {
+                "create": "Rechnung erstellen",
+                "edit": "Rechnung bearbeiten",
+                "details": "Rechnungsdetails"
+            },
+            "edit": "Rechnung bearbeiten",
+            "number": "Rechnungsnummer",
+            "total": "Rechnungssumme",
+            "total-sconto-hint": "(abzgl. Skonto)",
+            "issued-at": "Einsendedatum",
+            "status":{
+                "label": "Status",
+                "draft": "Entwurf",
+                "issued": "In Bearbeitung",
+                "approved": "Freigegeben",
+                "payment-authorized": "Zahlung angewiesen",
+                "money-transfered": "Zahlung erfolgt",
+                "rejected": "Zurückgewiesen"
+            },
+            "saved_by": "Gespeichert von",
+            "comment": "Kommentar",
+            "document": "Rechnungsdokument",
+            "discount": {
+                "label": "Skonto-Zahlung",
+                "hint": "4% Abzug bei einer Überweisung innerhalb von 7 Banktagen."
+            },
+            "tax": {
+                "label": "Umsatzsteuerpflichtig",
+                "with": "ja",
+                "without": "nein",
+                "hint": "<h5>Wann bin ich umsatzsteuerpflichtig?</h5><div><small>grundsätzlich ist jeder Unternehmer umsatzsteuerpflichtig</small><br/><br/><small>Rechnungen von Kleinunternehmern dürfen keine Umsatzsteuer ausweisen, ein entsprechender Rechtshinweis ist unabdingbar (§ 19 UStG)</small><br/><br/><small>für die Kleinunternehmerregelung dürfen folgende Grenzen nicht überschritten werden: 22.000 Euro (Stand 01.01.2020) im vorangegangen oder aktuellen Geschäftsjahr sowie 50.000 Euro im Folgejahr</small><br/><br/><small>unternehmerische Pflicht zur Kontrolle: werden die Grenzen überschritten, so greift im Folgejahr automatisch die Umsatzsteuerpflicht (das Finanzamt muss darauf nicht gesondert aufmerksam machen)</small><br/><br/></div>"
+            },
+            "assignments": "Einsätze",
+            "submit": {
+                "success": "Rechnung eingereicht"
+            },
+            "back": "Abbrechen",
+            "nothing-found": {
+                "headline": "Du hast keine Jobs, die in Rechnung gestellt werden können.",
+                "message": "Bitte lade zuerst Einsatzbericht und Stellungnahme für deine abgeschlossenen Einsätze hoch.",
+                "button": "Zur Vorbereitung"
+            },
+            "buttons": {
+                "confirm": "OK",
+                "cancel": "Abbrechen",
+                "submit": "Speichern und Rechnung einsenden",
+                "generate": "Weiter"
+            },
+            "upload": {
+                "select": "Dokumentquelle definieren",
+                "generate": "Rechnung generieren",
+                "own": "Rechnung hochladen",
+                "button": "Datei hochladen"
+            },
+            "rejected": {
+                "headline": "Die Rechnung wurde zurückgewiesen",
+                "hint-preparation": "Bitte kontrolliere alle einsatzbezogenen Dokumente, z.B. Einsatzbericht und überarbeite diese falls nötig.",
+                "hint-invoice": "Bitte überarbeite deine Angaben im Rechnungsformular (Button 'Bearbeiten'), lade ggf. ein neues Rechnungsdokument hoch und reiche die Rechnung durch den Button 'Einsenden' erneut bei uns ein.",
+                "button": "Dokumente zur Rechnungsstellung bearbeiten"
+            },
+            "errors": {
+                "number": {
+                    "required": "Rechnungsnummer fehlt."
+                },
+                "includes_taxes": {
+                    "required": "Angabe zur Umsatzsteuerpflicht fehlt."
+                },
+                "upload": {
+                    "required": "Rechnungsdokument fehlt."
+                },
+                "total": {
+                    "required": "Gesamtsumme der Rechnung fehlt."
+                },
+                "selected": "Auswahl der Einsätze fehlt.",
+                "document": "Dokument muss hochgeladen werden.",
+                "assignments": "Die ausgewählten Einsätze sind noch nicht vollständig bearbeitet. Im Bereich Vorbereitung kannst du die Einsätze bearbeiten."
+            }
+        },
+        "generate": {
+            "title": "Rechnungsgenerator",
+            "toggle": "Verwende den Rechnungsgenerator",
+            "costs-on-time": "Aufwandspauschale (nach Stunden)",
+            "additional-costs": "Vergütungen",
+            "incentives": "Pauschalen",
+            "gross": "Rechnungssumme (brutto)",
+            "net": "Rechnungssumme (netto)",
+            "vat": "Umsatzsteuer",
+            "total": "Rechnungssumme",
+            "select-address": "Bitte wähle die Adresse aus, die du als Anschrift in der Rechnung verwenden möchtest:",
+            "confirm": "Rechnungsvorschau erzeugen?",
+            "message": "Möchtest du das Rechnungsdokument mit der Nummer {number} über {total} erzeugen?",
+            "buttons": {
+                "generate": "Weiter",
+                "confirm": "Ja, erzeugen",
+                "cancel": "Abbrechen"
+            },
+            "success": "Das Rechnungsdokument wurde erstellt und hinzugefügt. Du kannst mit dem Rechnungsstellungsvorgang fortfahren.",
+            "error": "Die Dokumentgenerierung ist fehlgeschlagen."
+        }
+    },
+
+    "certificates": {
+        "tab-name": "Akademie",
+        "tabs": {
+            "all": "Alle Zertifikate",
+            "mine": "Meine Zertifikate",
+            "exclusive": "Einsatzschulungen"
+        },
+        "categories": {
+            "product": "Produkt",
+            "brand": "Marke",
+            "fragrance": "Duft",
+            "care": "Pflege",
+            "cosmetics": "Kosmetik",
+            "promotion": "Promotion",
+            "sale": "Verkauf",
+            "legal": "Recht"
+        },
+        "recommendation" :{
+            "recommended": "Empfohlen",
+            "with_jobs": "Mit Jobs"
+        },
+        "card": {
+            "jobs": "+{job_count_by_tenders} {job_count_by_tenders, plural, =1{Job} other{Jobs}}"
+        },
+        "nothing-found":{
+            "mine":{
+                "headline": "",
+                "message": "Du hast noch kein Zertifikat!",
+                "button": "Zu den Zertifikaten"
+            },
+            "all":{
+                "headline": "",
+                "message": "Kein Zertifikat!",
+                "button": ""
+            },
+            "exclusive":{
+                "headline": "",
+                "message": "Keine Einsatzschulungen vorhanden.",
+                "button": ""
+            }
+        },
+        "start-test": "Starte den Test!",
+        "filters": {
+                "active": "Gefilterte Zertifikate",
+                "search": {
+                    "short": "Suche",
+                    "label": "Name, Kurz- oder Langbeschreibung",
+                    "placeholder": "mind. 3 Zeichen"
+                },
+                "category": {
+                    "short": "Kategorie",
+                    "label": "Kategorie des Zertifikats"
+                },
+                "recommendation": {
+                    "short": "Empfehlung",
+                    "label": "Merkmale des Zertifikats"
+                }
+            }
+    },
+
+    "settings": {
+        "tab-name": "Einstellungen",
+        "my-profile": "Mein Profil",
+        "page-name": "Einstellungen",
+        "imprint": "Impressum",
+        "dataprivacy": "Datenschutzerklärung"
+    },
+
+    "exam": {
+        "instruction": {
+            "headline": "Hinweise zum Test",
+            "description": "<p>Im nächsten Schritt werden dir die Testfragen mit möglichen Antworten angezeigt.</p><ul><li>Bitte lies die Frage sorgfältig durch und wähle danach <strong>eine oder mehrere Antworten</strong> aus.</li><li>Mit einem Klick auf den <strong>'Weiter'</strong>-Button kommst du zur nächsten Frage.</li><li>Mit einem Klick auf den <strong>'Zurück'</strong>-Button, kannst du zur vorherigen Frage zurückkehren.</li></ul><p>Nach der letzten Frage wird dir eine Zusammenfassung des Tests mit allen Fragen und deinen Antworten angezeigt.<br/>Hier kannst du nochmal deine Antworten überprüfen und gegebenfalls korrigieren.</p><p>Bitte sende abschließend deine Antworten an uns durch Klick auf den <strong>'Antworten senden'</strong>- Button.</p><p>Das Ergebnis wird dir sofort angezeigt.<br/>Solltest du den Test nicht bestanden haben, kannst du ihn problemlos wiederholen.</p><h4 class=\"text-uppercase\"><strong>Viel Erfolg!</strong></h4>"
+        },
+        "buttons": {
+            "next": "Weiter",
+            "back": "Zurück",
+            "submit": "Antworten senden",
+            "confirm": "Ok",
+            "cancel": "Abbrechen"
+        },
+        "test": "Test: {name}",
+        "question": "Frage {num} von {all}",
+        "submit": "Möchtest Du deine Antworten jetzt senden?",
+        "results": {
+            "passed": "Herzlichen Glückwunsch! Du hast den Test bestanden.",
+            "failed": "Leider hast du den Test nicht bestanden.",
+            "failed-questions": "Folgende Fragen solltest du dir vorher nochmal genauer anschauen:",
+            "result": "Ergebnis",
+            "questions": "Anzahl Fragen",
+            "correct": "Richtige Antworten",
+            "wrong": "Falsche Antworten",
+            "status": "Status",
+            "restart-test": "Test wiederholen",
+            "back-to-training": "Zurück zur Schulung",
+            "back-to-certificates": "Zurück zu den Zertifikaten"
+        }
+    },
+
+    "push": {
+        "settings":{
+            "label-tenders-matching": "Benachrichtigungen: Angebote",
+            "label-coming-checkout": "Benachrichtigungen: Auschecken"
+        },
+        "button":{
+            "open": "Anzeigen",
+            "cancel": "Abbrechen"
+        },
+        "notification":{
+            "tenders-matching": "Du hast neue Job-Angebote."
+        },
+        "no-permission":"Push-Benachrichtigungen haben keine Berechtigungen."
+    },
+
+    "survey": {
+        "abort": "Abbrechen",
+        "feedback": {
+            "title": "Feedback",
+            "description": "Bitte gib uns noch eine Rückmeldung, wie dein Einsatz abgelaufen ist. Vielen Dank!",
+            "question": "Frage {num}",
+            "comment": {
+                "label": "Begründung/Kommentar zur Frage {num}"
+            },
+            "answer": {
+                "required": "Antwort mit freiem Text",
+                "true": "Ja",
+                "false": "Nein"
+            },
+            "submit": "Speichern"
+        },
+        "questionnaire": {
+            "title": "Stellungnahme",
+            "description": "Bitte beantworte die nachfolgenden Fragen wahrheitsgemäß. Solltest du eine Frage mit 'nein' beantworten müssen, nenne uns bitte eine Begründung dafür. Vielen Dank!",
+            "question": "Frage {num}",
+            "comment": {
+                "label": "Begründung/Kommentar zur Frage {num}",
+                "required": "Bitte gib eine Begründung für deine Antwort an."
+            },
+            "answer": {
+                "true": "Stimmt",
+                "false": "Stimmt nicht"
+            },
+            "submit": "Speichern"
+        },
+        "errors": {
+            "answer-missing": "Nicht alle Antworten gegeben",
+            "disagree-comment-missing": "Kommentar für negative Antwort erforderlich"
+        }
+    },
+
+    "messages": {
+        "counter": "Du hast {total, plural, =0{keine neuen} =1{eine neue} other{neue}} {total, plural, =1{Nachricht} other{Nachrichten}}.",
+        "fields": {
+            "subject": "Betreff",
+            "content": "Inhalt"
+        },
+        "buttons": {
+            "back": "Zurück",
+            "cancel": "Abbrechen",
+            "submit": "Absenden"
+        }
+    },
+
+    "filter": {
+        "search": {
+            "placeHolder": "mind. 3 Zeichen"
+        },
+        "jobs": {
+            "type": "Klasse der Ausschreibung",
+            "dates": "Termine",
+            "postcodes": "Postleitzahl des Einsatzortes",
+            "certificate": "Zertifikat"
+        },
+        "certificates": {
+            "category": "Kategorie des Zertifikats",
+            "recommendation": "Merkmale des Zertifikats",
+            "attributes": "Merkmale des Zertifikats"
+        },
+        "date-range": {
+            "min": "von",
+            "max": "bis",
+            "label": {
+                "job": "Termine"
+            }
+        },
+        "input-range": {
+            "min": "von",
+            "max": "bis",
+            "label": {
+                "zip": "Postleitzahl des Einsatzortes"
+            }
+        },
+        "select": {
+            "label": {
+                "certificate": "Zertifikat"
+            }
+        }
+    }
+}

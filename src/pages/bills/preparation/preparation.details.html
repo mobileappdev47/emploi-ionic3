@@ -1,0 +1,92 @@
+<ion-content padding>
+  <button-back label="bills.preparation.details.back"></button-back>
+
+  <tender-item [tender]="details"></tender-item>
+
+  <ion-item class="details" light text-wrap>
+    <span>{{ 'assignments.details.fees' | translate }}</span>
+    <div itemDetails>
+      <ion-col col-12 light text-wrap class="desc incentives" *ngIf="details.incentive_model">
+        <p>{{ 'assignments.details.incentives.label' | translate }}</p>
+        <div *ngFor="let key of ['checkin', 'sales_report', 'picture_documentation']">
+          <span>{{ 'assignments.details.incentives.' + key | translate }}</span>
+          <span>{{ details.incentives[key] | toCurrency }}</span>
+        </div>
+      </ion-col>
+
+      <ion-col col-12 light text-wrap class="desc costs" *ngIf="details.additional_costs">
+        <p>{{ 'assignments.details.costs.label' | translate }}</p>
+        <div *ngFor="let key of details.costs | keys">
+          <span>{{ key }}</span>
+          <span>{{ details.costs[key] | toCurrency }}</span>
+        </div>
+      </ion-col>
+
+      <ion-col col-12 light text-wrap class="desc wage" *ngIf="details.wage && details.wage > 0">
+        <div>
+          <span>{{ 'assignments.details.wage' | translate }}</span>
+          <span>{{ details.wage | toCurrency }}</span>
+        </div>
+      </ion-col>
+    </div>
+  </ion-item>
+
+  <ion-item *ngIf="questionnaire.available" text-wrap class="quest">
+    <h5 head-5>{{ 'bills.preparation.details.questionnaire.headline' | translate }}</h5>
+    <p>{{ 'bills.preparation.details.questionnaire.description' | translate }}</p>
+    <button ion-button full [color]="questionnaire.answered ? 'button-default' : 'button-primary'" (click)="editSurvey('questionnaire')" [ngClass]="{ outline: questionnaire.answered }">
+      {{ 'bills.preparation.details.questionnaire.button.' + (questionnaire.answered ? 'edit' : 'add') | translate }}
+    </button>
+  </ion-item>
+
+  <ion-item *ngIf="feedback.available" text-wrap class="quest">
+    <h5 head-5>{{ 'bills.preparation.details.feedback.headline' | translate }}</h5>
+    <p>{{ 'bills.preparation.details.feedback.description' | translate }}</p>
+    <approval-info *ngIf="feedback.answered" [approval]="details.feedback.approval"></approval-info>
+    <button ion-button full [color]="feedback.answered ? 'button-default' : 'button-primary'"  (click)="editSurvey('feedback')" [ngClass]="{ outline: feedback.answered }">
+      {{ 'bills.preparation.details.feedback.button.' + (feedback.answered ? 'edit' : 'add') | translate }}
+    </button>
+  </ion-item>
+
+  <ng-container *ngIf="reportFillable()">
+
+    <ion-item text-wrap class="templates">
+      <h5 head-5>{{ 'bills.preparation.details.templates.headline' | translate }}</h5>
+      <div *ngIf="details.documents">
+        <p>{{ 'bills.preparation.details.templates.description' | translate }}</p>
+        <document-item *ngIf="details.templates.report" [document]="details.templates.report"></document-item>
+      </div>
+    </ion-item>
+
+    <ion-item *ngFor="let type of ['report', 'picture-documentation']" text-wrap class="docs">
+      <h5 head-5>{{ 'bills.preparation.details.' + type + '.headline' | translate }}</h5>
+      <document-item *ngIf="details.reports && details.reports[type]" [document]="details.reports[type]" [attr.action]="!details.reports[type].approval || details.reports[type].approval.state !== 'accepted' ? 'remove' : ''" (remove)="onRemove($event, type)"></document-item>
+      <file-upload *ngIf="!details.reports[type] || !details.reports[type].approval || details.reports[type].approval.state !== 'accepted'" (uploaded)="onReportUpload($event, type)" [button]="details.reports[type] ? 'optional' : ''"
+        [label]="'bills.preparation.details.' + type + '.' + (details.reports[type] ? 'update' : 'upload')">
+      </file-upload>
+    </ion-item>
+
+    <ion-item *ngIf="details.saleslots && details.saleslots.length" text-wrap no-lines class="docs">
+      <h5 head-5>{{ 'bills.preparation.details.revenue.headline' | translate }}</h5>
+      <div>
+        <p *ngIf="details.revenue" float-left>{{ 'bills.preparation.details.revenue.total' | translate }}: {{ details.revenue.sum  | toCurrency }}</p>
+        <p *ngIf="!details.revenue" float-left>{{ 'bills.preparation.details.revenue.none' | translate }}</p>
+        <button ion-button color="default" icon-only float-right outline (click)="editRevenue()" [ngClass]="{ optional: details.revenue }">
+          <ion-icon [name]="details.revenue ? 'create' : 'add'"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+
+    <ion-item *ngIf="details.reports" text-wrap no-lines>
+      <button color="button-primary" ion-button full solid strong navPop>
+        {{ 'bills.preparation.details.close' | translate }}
+      </button>
+    </ion-item>
+
+  </ng-container>
+
+  <ion-item *ngIf="!details.fetched" center>
+    <ion-spinner></ion-spinner>
+  </ion-item>
+
+</ion-content>

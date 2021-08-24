@@ -1,0 +1,39 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+certificate-card {
+    display: block;
+    ion-card {
+        @include ion-card-p4y;
+    }
+    ion-thumbnail {
+        height: 110px;
+        min-width: 80px !important;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100% !important;
+            width: 90px !important;
+            object-fit: contain;
+        }
+    }
+    ion-item .item-inner {
+        padding-bottom: 30px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 105px);
+        font-size: 1.4rem;
+    }
+    .jobs {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: color($colors, gray);
+        text-transform: none;
+        color: #fff;
+    }
+}

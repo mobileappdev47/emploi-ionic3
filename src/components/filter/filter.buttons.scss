@@ -1,0 +1,28 @@
+filter-buttons {  
+    .filter-button {
+        margin: 5px;
+        border: 1px solid color($colors, primary);
+        border-radius: 10px !important;
+        overflow: auto;
+    }
+
+    .filter-button label {
+        width: 4.0em;
+    }
+
+    .filter-button label span {
+        text-align: center;
+        padding: 5px 10px 5px 10px;
+        display: block;
+        color: color($colors, primary);
+    }
+
+    .filter-button label input {
+        position: absolute;
+        top:-20px;
+    }
+
+    .filter-button input:checked + span {
+        background-color: color($colors, success);
+    }
+}

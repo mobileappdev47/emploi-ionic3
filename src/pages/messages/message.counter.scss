@@ -1,0 +1,16 @@
+@import "../../theme/mixins";
+
+message-counter {
+    display: block;
+    padding-right: 16px;
+    ion-icon {
+        position: relative;
+        ion-badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: 8px;
+            color: color($colors, primary);
+        }
+    }
+}

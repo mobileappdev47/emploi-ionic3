@@ -1,0 +1,15 @@
+generate-invoice-details {
+    form > ion-item-group {
+        margin-bottom: 10px;
+        p[item-end] {
+            margin: 9px 0 9px 8px !important;
+        }
+    }
+    ion-input[type="number"] input {
+        text-align: right;
+    }
+    address {
+        padding: 15px 0;
+        font-style: normal;
+    }
+}

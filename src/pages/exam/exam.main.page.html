@@ -1,0 +1,39 @@
+<ion-content padding>
+  <button-back label="buttons.back"></button-back>
+  <div>
+    <ion-slides *ngIf="instance" (ionSlideWillChange)="onSlideChanging()" #slides>
+      <ion-slide class="swiper-no-swiping" *ngFor="let question of instance.questions; let i = index;">
+        <h6>{{ 'exam.test' | translate : instance.exam }} </h6>
+        <p class="question"> {{ "exam.question" | translate : {num: i + 1, all: instance.questions.length} }} </p>
+        <p class="text">{{ question.text }}</p>
+        <ion-list margin-bottom no-lines>
+          <ion-item *ngFor="let ans of question.answers">
+            <ion-label class="choices" text-wrap>{{ ans.answer }}</ion-label>
+            <ion-checkbox color="button-primary" item-left [(ngModel)]="answers[ans.id]"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="slides">
+  <ion-row>
+    <ion-col>
+      <button color="primary" ion-button clear small strong icon-start [disabled]="slides.isBeginning()" (click)="slides.slidePrev()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          {{ "exam.buttons.back" | translate }}
+        </button>
+    </ion-col>
+    <ion-col>
+      <button color="button-primary" float-right ion-button solid strong small icon-end *ngIf="slides.isEnd()" (click)="submitAnswers()">
+        {{ "exam.buttons.submit" | translate }}
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+      <button color="button-primary" float-right ion-button solid strong small icon-end *ngIf="!slides.isEnd()" (click)="slides.slideNext()">
+        {{ "exam.buttons.next" | translate }}
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

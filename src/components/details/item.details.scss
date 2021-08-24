@@ -1,0 +1,30 @@
+
+ion-label.has-item-details {
+    & > :first-child {
+        width: calc(100% - 30px);
+        float: left;
+    }
+    [itemDetails] {
+        clear: both;
+        transition: all ease-in-out 0.3s;
+        height: 0;
+        overflow: hidden;
+    }
+    ion-icon.item-icon::before {
+        font-size: 25px;
+        transition: all ease-in-out 0.3s;
+    }
+    &.details-opening {
+        ion-icon.item-icon::before {
+            transform: rotate(90deg);
+        }
+        [itemDetails] {
+            height: 100px;
+        }
+    }
+    &.details-opened {
+        [itemDetails] {
+            height: auto;
+        }
+    }
+}

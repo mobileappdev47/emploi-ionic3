@@ -1,0 +1,88 @@
+<ion-content padding>
+  <button-back label="jobs.details.back"></button-back>
+  <ion-item class="head">
+    <ion-row>
+      <ion-col col-12>
+          <h2 text-wrap head-2>{{ details.shortTitle }}</h2>
+      </ion-col>
+      <ion-col col-12>
+        <p>{{ details.client.name }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="category" *ngIf="details.category">
+          <ion-icon name="pricetag"></ion-icon>
+          <span>{{ 'common.categories.' + details.category | translate }}</span>
+        </p>
+      </ion-col>
+      <ion-col *ngIf="details.contract_type_identifier">
+        <p class="category">
+          <ion-icon name="paper"></ion-icon>
+          <span>{{ 'common.contract_types.' + details.contract_type_identifier | translate }}</span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item class="schedule">
+    <ion-row light>
+      <ion-icon name="home" padding-right></ion-icon>
+      {{ details.site.name + (details.site.number ? ' | '+ details.site.number : '') }}
+    </ion-row>
+    <ion-row light>
+      <ion-icon name="pin" padding-right></ion-icon>
+      {{ details.site.zip + ' ' + details.site.city + ', ' + details.site.address }}
+    </ion-row>
+  </ion-item>
+
+  <ion-item text-wrap class="desc">
+    <h5 head-5>{{ 'jobs.details.description' | translate }}</h5>
+    <p [innerHTML]="details.assignment.description | nl2br"></p>
+  </ion-item>
+
+  <ion-item text-wrap class="desc">
+    <h5 head-5>{{ 'jobs.details.briefing' | translate }}</h5>
+    <p [innerHTML]="details.assignment.briefing | nl2br"></p>
+  </ion-item>
+
+  <ion-list class="dates" [ngClass]="{ offered: details.offered }">
+    <h5 head-5>{{ 'jobs.details.dates' | translate }}</h5>
+    <ion-item *ngIf="!details.offered">
+      <ion-checkbox color="primary" (click)="toggleAll()" [(ngModel)]="selectedAll"></ion-checkbox>
+      <ion-label>
+        <p>{{ 'jobs.buttons.select-all' | translate }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let tender of details.tenders">
+      <ion-checkbox color="primary" [(ngModel)]="tenders[tender.id]" (ionChange)="toggleOne()"></ion-checkbox>
+      <ion-label>
+        <p>
+          <ion-icon name="calendar"></ion-icon>{{ tender.start | amDateFormat : 'DD.MM.YYYY' }}
+        </p>
+        <p>
+          <ion-icon name="clock"></ion-icon>{{ tender.start | amDateFormat : 'HH:mm' }} - {{ tender.end | amDateFormat : 'HH:mm' }}<br>
+        </p>
+        <p>
+          {{ tender.daily_rate_min | toCurrency }} {{ tender.daily_rate_min !== tender.daily_rate_max && ' - ' + (tender.daily_rate_max  | toCurrency) || '' }}
+        </p>
+      </ion-label>
+      <ion-icon item-end name="information-circle" color="primary" *ngIf="tender.hasMoreFinancialInfo" tappable (click)="info(tender)"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-item no-lines text-wrap warning *ngIf="!details.offered && restricted">
+    {{ 'jobs.offer.info.' + restricted | translate }}
+  </ion-item>
+
+  <div *ngIf="!details.offered" class="actions" text-right>
+    <button ion-button full color="button-primary" (click)="acceptOffers()" [disabled]="restricted || processing || !selected().length">
+      {{ 'jobs.buttons.accept' | translate }}
+    </button>
+    <button ion-button clear color="button-default" (click)="rejectOffers()" [disabled]="processing">
+      {{ 'jobs.buttons.reject' | translate }}
+    </button>
+    <button ion-button clear color="button-default" (click)="createMessage()" [disabled]="processing || !selected().length">
+      {{ 'jobs.offer.question.button' | translate }}
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,110 @@
+<ion-content padding>
+  <button-back label="assignments.details.back"></button-back>
+  <ion-item class="head">
+    <ion-row>
+      <ion-col col-12>
+        <h2 text-wrap head-2>{{ details.job.title }}</h2>
+      </ion-col>
+      <ion-col col-12>
+        <p>{{ details.client.name }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="category" *ngIf="details.category">
+          <ion-icon name="pricetag"></ion-icon>
+          <span>{{ 'common.categories.' + details.category | translate }}</span>
+        </p>
+      </ion-col>
+      <ion-col *ngIf="details.contract_type_identifier">
+        <p class="category">
+          <ion-icon name="paper"></ion-icon>
+          <span>{{ 'common.contract_types.' + details.contract_type_identifier | translate }}</span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item class="schedule">
+    <ion-row light>
+      <ion-icon name="calendar" padding-right></ion-icon>
+      {{ details.start_at | amDateFormat : 'DD.MM.YYYY' }}
+    </ion-row>
+    <ion-row light>
+      <ion-icon name="clock" padding-right></ion-icon>
+      {{ details.start_time }} - {{ details.finish_time }}
+    </ion-row>
+    <ion-row light>
+      <ion-icon name="home" padding-right></ion-icon>
+      {{ details.site.name + (details.site.number ? ' | '+ details.site.number : '') }}
+    </ion-row>
+    <ion-row light>
+      <ion-icon name="pin" padding-right></ion-icon>
+      {{ details.site.zip + ' ' + details.site.city + ', ' + details.site.address }}
+    </ion-row>
+    <ion-row light>
+      <ion-icon name="cash" padding-right></ion-icon>
+      {{ details.daily_rate_min | toCurrency }}
+      {{ details.daily_rate_min !== details.daily_rate_max ? ' - ' + (details.daily_rate_max | toCurrency) : '' }}
+    </ion-row>
+  </ion-item>
+
+  <ion-item text-wrap class="desc">
+    <h5 head-5>{{ 'assignments.details.description' | translate }}</h5>
+    <p [innerHTML]="details.assignment.description | nl2br"></p>
+  </ion-item>
+
+  <ion-item text-wrap class="desc">
+    <h5 head-5>{{ 'assignments.details.briefing' | translate }}</h5>
+    <p [innerHTML]="details.assignment.briefing | nl2br"></p>
+  </ion-item>
+
+  <ion-item text-wrap class="desc incentives" *ngIf="details.incentive_model">
+    <h5 head-5>{{ 'assignments.details.incentives.label' | translate }}</h5>
+    <div *ngFor="let key of ['checkin', 'sales_report', 'picture_documentation']">
+      <span>{{ 'assignments.details.incentives.' + key | translate }}</span>
+      <span>{{ details.incentives[key] | toCurrency }} €</span>
+    </div>
+  </ion-item>
+
+  <ion-item text-wrap class="desc costs" *ngIf="details.additional_costs">
+    <h5 head-5>{{ 'assignments.details.costs.label' | translate }}</h5>
+    <div *ngFor="let key of details.costs | keys">
+      <span>{{ key }}</span>
+      <span>{{ details.costs[key] | toCurrency }} €</span>
+    </div>
+  </ion-item>
+
+  <ion-item text-wrap class="desc wage" *ngIf="details.wage && details.wage > 0">
+    <div>
+      <span>
+        <h5 head-5>{{ 'assignments.details.wage' | translate }}</h5>
+      </span>
+      <span>{{ details.wage | toCurrency }}</span>
+    </div>
+  </ion-item>
+
+  <ion-item text-wrap class="docs">
+    <h5 head-5>{{ 'assignments.details.documents.headline' | translate }}</h5>
+    <div *ngIf="details.documents">
+      <p>{{ 'assignments.details.documents.description.' + (details.documents.length ? 'exists' : 'none') | translate }}</p>
+      <ion-list *ngIf="details.documents.length">
+        <document-item *ngFor="let document of details.documents" [document]="document"></document-item>
+      </ion-list>
+    </div>
+    <ion-spinner *ngIf="!details.documents" center></ion-spinner>
+  </ion-item>
+
+  <ion-item text-wrap class="contact" *ngIf="details.agent">
+    <h5 head-5>{{ 'assignments.details.contact' | translate }}</h5>
+    <p>{{ details.agent.fullname }}</p>
+    <ion-row light *ngIf="details.agent.email">
+      <ion-icon name="mail" padding-right></ion-icon>
+      <a href="mailto:{{ details.agent.email }}">{{ details.agent.email }}</a>
+    </ion-row>
+    <ion-row light *ngIf="details.agent.mobile">
+      <ion-icon name="phone-portrait" padding-right></ion-icon>
+      <span tappable (click)="makeCall(details.agent.mobile)">{{ details.agent.mobile }}</span>
+    </ion-row>
+  </ion-item>
+
+</ion-content>

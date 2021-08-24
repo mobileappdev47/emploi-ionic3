@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "448181723798",
+    "project_id": "flapp-austria",
+    "storage_bucket": "flapp-austria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448181723798:android:80fc875138048deb9798b7",
+        "android_client_info": {
+          "package_name": "com.promotionforyou.aust"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448181723798-uctiocrard8u60kaea7qpfv1tmquu128.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.promotionforyou.aust",
+            "certificate_hash": "04bd5a55186da874c395c3ad2500860a9f16c84c"
+          }
+        },
+        {
+          "client_id": "448181723798-ru60ubjbpnb10119kfhv307nkbmu373n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXQkTB8qAKUWPKf1_UXTek2rydQa54NPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448181723798-ru60ubjbpnb10119kfhv307nkbmu373n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448181723798-1db40rfjkqkoltu5oj2nh33uevme398u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.promotionforyou.aust"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

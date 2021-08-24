@@ -1,0 +1,233 @@
+@import "mixins";
+@import "variables";
+
+[text-nowrap] {
+    @include overflow-ellipsis;
+}
+
+h2, h3, h4, h5, h6 {
+    &[text-nowrap] {
+        width: 100%;
+    }
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 10px !important;
+    white-space: inherit;
+}
+
+.button-clear {
+    font-weight: normal;
+    font-size: 1.4rem;
+}
+
+.ion-logo-euro:before {
+    content: "\20ac";
+    font-family: DidactRegular;
+    font-size: 90%;
+    font-weight: normal;
+}
+
+.ion-md-whatsapp:before {
+    font-family: FontAwesome;
+    content: "\f232";
+}
+
+ion-tab .scroll-content:after {
+    content: ' ';
+    display: block;
+    height: calc(5.6rem + 10px); // $tabs-md-tab-min-height + 20px;
+}
+
+.action-sheet-sub-title {
+    padding-left: 18px;
+    padding-bottom: 20px;
+}
+
+.action-sheet-button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.action-sheet-cancel .button-inner {
+    display: inline-block;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.button-md-button-primary.outline, .button-ios-button-primary.outline {
+    color: color($colors, button-primary);
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.button-md-button-default.outline, .button-ios-button-default.outline {
+    color: color($colors, button-default);
+    background-color: #fff;
+    box-shadow: none;
+    font-weight: normal;
+    font-size: 1.4rem;
+    &:hover {
+        background-color: color($colors, button-default);
+        color: #fff;
+    }
+}
+
+.alert-md, .alert-ios {
+    .alert-message {
+        color: $text-color;
+    }
+    .alert-button {
+        font-weight: bold;
+        &.primary {
+            background-color: color($colors, button-primary);
+            color: #fff;
+        }
+        &.default {
+            color: color($colors, primary);
+            background-color: transparent;
+            font-weight: normal;
+        }
+    }
+}
+.alert-md .alert-button {
+    border-radius: 10px;
+    &.default {
+        border: none;
+    }
+}
+
+
+// ios things
+.tabbar {
+    .show-tabbar {
+        opacity: .9;
+    }
+}
+.item-ios ion-thumbnail {
+    min-width: 80px;
+}
+
+ion-label.label-ios {
+    font-size: 1.4rem;
+}
+
+ion-item[warning] {
+    ion-label {
+        color: color($colors, danger);
+    }
+}
+
+ion-row {
+    ion-icon[name="pin"] {
+        margin-left: 2px;
+        padding-right: 18px;
+    }
+}
+
+// small devices
+@media (max-width: 420px) {
+    ion-col[col-6] + ion-col[col-6].long {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    .item-block .item-inner {
+        padding-right: 2px !important;
+    }
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color :color($colors, success);
+    box-shadow: inset 0 -1px 0 0 color($colors, success);
+}
+
+.select-md, .select-ios {
+    .select-icon .select-icon-inner {
+        color: color($colors, primary);
+    }
+}
+
+
+/* align radio button on top not vertically centered */
+.item {
+    &.item-md, &.item-ios {
+        &.item-radio {
+            div.item-inner {
+                align-items: start;
+                /* item inner, that shows label first */
+                div.input-wrapper ~ .radio-md, div.input-wrapper ~ .radio-ios{
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}
+
+a[disabled], button[disabled], [ion-button][disabled] {
+    opacity: .1;
+}
+
+.item-ios p, .item-md p {
+    color: color($colors, dark);
+}
+
+.popover-content {
+    width: 90% !important;
+}
+
+.searchbar-ios {
+    border: 0.55px solid $searchbar-ios-border-color;
+    border-radius: $border-radius;
+}
+.item-radio-checked.item-md ion-label, item-radio-checked.item-ios ion-label {
+    color: color($colors, button-primary);
+}
+
+document-item {
+    ion-item {
+        border-bottom: none !important;
+        &.item-md, &.item-ios {
+            border: none !important;
+        }
+    }
+    & + file-upload {
+        ion-label {
+            margin: 5px 0 !important;
+        }
+    }
+}
+file-upload ion-item {
+    &.item-md, &.item-ios {
+        border-top: none !important;
+    }
+}
+
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md,
+.item-input .label-ios, .item-select .label-ios, .item-datetime .label-ios{
+    color: $text-color;
+}
+
+ion-input[validateCurrency] {
+    position: static;
+    input {
+        padding-right: 20px;
+        text-align: right !important;
+    }
+    &:after {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        content: "\20ac";
+        font-family: DidactRegular;
+        transform: translateY(-40%);
+    }
+}

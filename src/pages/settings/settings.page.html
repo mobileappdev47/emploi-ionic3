@@ -1,0 +1,13 @@
+<ion-content padding>
+  <ion-list>
+    <button ion-item [navPush]="pages.profile">
+      {{ 'settings.my-profile' | translate }}
+      <ion-icon name="person" item-end></ion-icon>
+    </button>
+    <button ion-item [navPush]="pages.imprint">{{ 'settings.imprint' | translate }}</button>
+    <button ion-item [navPush]="pages.privacy">{{ 'settings.dataprivacy' | translate }}</button>
+    <push-notify-toggle label="push.settings.label-tenders-matching" type="tenders-matching" default=false></push-notify-toggle>
+    <push-notify-toggle label="push.settings.label-coming-checkout" type="coming-checkout" default=true></push-notify-toggle>
+    <button ion-item (click)="logout()">{{ 'auth.logout.action' | translate }}</button>
+  </ion-list>
+</ion-content>

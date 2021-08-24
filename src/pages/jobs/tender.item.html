@@ -1,0 +1,53 @@
+<ion-item>
+  <ion-row class="head">
+    <h3 text-nowrap head-3>{{ tender.job.title }}</h3>
+    <p>{{ tender.client.name }}</p>
+    <ion-col>
+      <div class="category" *ngIf="tender.category">
+        <ion-icon name="pricetag"></ion-icon>
+        <span>{{ 'common.categories.' + tender.category | translate }}</span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="category" *ngIf="tender.contract_type_identifier">
+        <ion-icon name="paper"></ion-icon>
+        <span>{{ 'common.contract_types.' + tender.contract_type_identifier | translate }}</span>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="schedule" light>
+    <ion-col col-12 normal>
+      <ion-icon name="ios-calendar-outline" medium></ion-icon>
+      <span *ngIf="!tender.count">{{ tender.start_at | amDateFormat : 'DD MMMM YYYY' }}</span>
+      <span *ngIf="tender.count && tender.count.done === 1">{{ tender.range.dates.start | amDateFormat : 'DD MMMM YYYY' }}</span>
+      <span *ngIf="tender.count && tender.count.done > 1">{{ 'jobs.dates' | translate : {
+        number: tender.count.done,
+        start: (tender.range.dates.start | amDateFormat : 'DD MMM'),
+        end: (tender.range.dates.end | amDateFormat : 'DD MMM YYYY')
+      } }}</span>
+    </ion-col>
+    <ion-col col-6>
+      <ion-icon name="ios-clock-outline" medium></ion-icon>
+      {{ tender.start_time }} - {{ tender.finish_time }}
+    </ion-col>
+    <ion-col col-6 text-right *ngIf="!tender.count || (tender.count && (tender.count.done === 1 || tender.range))">
+      <span *ngIf="tender.range">
+        {{ tender.range.rates.sum.min | toCurrency }}
+        {{ (tender.range.rates.sum.min !== tender.range.rates.sum.max) ? ' - '  + (tender.range.rates.sum.max | toCurrency) : '' }}
+      </span>
+      <span *ngIf="!tender.range">
+        {{ tender.daily_rate_min | toCurrency }}
+        {{ (tender.daily_rate_min !== tender.daily_rate_max) ? ' - '  + (tender.daily_rate_max | toCurrency) : '' }}
+      </span>
+    </ion-col>
+    <ion-col col-12 text-nowrap class="long">
+      <ion-icon name="ios-home-outline" medium></ion-icon>
+      {{ tender.site.name + (tender.site.number ? ' | '+ tender.site.number : '') }}
+    </ion-col>
+    <ion-col col-12 text-nowrap>
+      <ion-icon name="ios-pin-outline" medium></ion-icon>
+      {{ tender.site.zip + ' ' + tender.site.city + ', ' + tender.site.address }}
+    </ion-col>
+  </ion-row>
+  <ion-icon name="warning" *ngIf="tender.warning"></ion-icon>
+</ion-item>

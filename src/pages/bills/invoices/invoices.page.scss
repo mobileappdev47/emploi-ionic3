@@ -1,0 +1,44 @@
+@import "../../../theme/variables";
+
+page-invoices {
+    ion-card {
+        @include ion-card-p4y;
+    }
+    invoice-item {
+        margin: 15px;
+        border: $card-border !important;
+        ion-thumbnail.cal-date {
+            margin: 8px 0 !important;
+            small {
+                bottom: -5px;
+            }
+        }
+        .item {
+            padding-left: 0;
+            .item-inner {
+                border-left: $card-border !important;
+                padding-left: 10px;
+            }
+        }
+    }
+
+    .not-found {
+        height: 100%;
+        & > div {
+            padding-top: 30%;
+        }
+        ion-icon {
+            display: block;
+            font-size: 70px;
+        }
+        .item-md  {
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        ion-label {
+            color: $text-color-superlight;
+            line-height: 1.8;
+            padding-bottom: 5px;
+        }
+    }
+}

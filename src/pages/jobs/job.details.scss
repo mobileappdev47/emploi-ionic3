@@ -1,0 +1,99 @@
+
+page-job-details {
+    [ion-button][full] {
+        margin-top: 20px;
+    }
+    ion-item {
+        &.schedule {
+            color: $text-color;
+            margin-top: 10px;
+            ion-row {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            .button-small-md, .button-small-ios {
+                margin: 0;
+                font-size: 1.4rem;
+                color: $text-color-light;
+            }
+        }
+        &.desc {
+            h5 {
+                margin-bottom: 15px;
+                &:not(:first-of-type) {
+                    margin-top: 20px;
+                }
+            }
+        }
+        ion-checkbox {
+            margin-right: 20px !important;
+        }
+        .item-inner {
+            ion-icon {
+                z-index: 2;
+            }
+        }
+    }
+    ion-list {
+        &.dates {
+            h5 {
+                margin-left: 16px;
+                margin-bottom: 15px;
+                margin-top: 15px !important;
+            }
+            ion-icon {
+                padding-right: 10px;
+                &[item-end] {
+                    padding: 10px 20px;
+                    margin: 0;
+                }
+            }
+            &.offered {
+                ion-checkbox, .button-effect {
+                    display: none !important;
+                }
+            }
+        }
+    }
+    .category {
+        margin-top:10px;
+        color: $text-color-light;
+    }
+}
+
+// specialized alert in body context
+ion-alert.assignment-info {
+    .alert-wrapper {
+        width: 80%;
+        max-width: 80%;
+    }
+    .divider {
+        margin-top: 1rem;
+    }
+    .alert-message {
+        div:first-child, .divider + div {
+            font-weight: bolder;
+            margin-bottom: 0.5rem;
+        }
+        div {
+            line-height: 1.4;
+            span {
+                display: inline-block;
+                &:first-child {
+                    width: calc(100% - 70px);
+                    text-align: left;
+                }
+                & + span {
+                    width: 70px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    ion-backdrop {
+        opacity: .6 !important;
+    }
+}

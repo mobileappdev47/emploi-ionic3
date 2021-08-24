@@ -1,0 +1,25 @@
+<ion-item>
+  <ion-thumbnail class="cal-date" item-start>
+    <h2>{{ invoice.issued_at | amDateFormat : 'DD' }}</h2>
+    <p>{{ invoice.issued_at | amDateFormat : 'MMMM' }}</p>
+    <p>{{ invoice.issued_at | amDateFormat : 'YYYY' }}</p>
+  </ion-thumbnail>
+  <ion-row class="head">
+    <h5 light>{{ 'bills.invoice.number' | translate }}</h5>
+    <h3 text-nowrap head-3>{{ invoice.number }}</h3>
+    <p text-wrap light>{{ invoice.comment }}</p>
+  </ion-row>
+  <ion-row light class="schedule">
+    <ion-col col-12>
+      <ion-icon name="calendar" medium></ion-icon>
+      <p [innerHTML]="'bills.invoices.assignments' | translate : invoice.summary"></p>
+    </ion-col>
+    <ion-col col-5>
+      {{ invoice.total | toCurrency }}
+      <span class="total_sconto_hint" *ngIf="invoice.with_discount === 'true'">{{ 'bills.invoice.total-sconto-hint' | translate }}</span>
+    </ion-col>
+    <ion-col col-7 [ngClass]="invoice.state" text-end>
+      {{ 'bills.invoice.status.' + invoice.state | translate }}
+    </ion-col>
+  </ion-row>
+</ion-item>

@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event);" #refresher>
+    <ion-refresher-content pulling-icon="ion-arrow-down-b positive" spinner="crescent" pullingText="{{ 'common.pull-to-refresh' | translate }}"
+      refreshingText="{{ 'common.refreshing' | translate }}">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list no-lines *ngIf="items && items.length">
+    <tender-item *ngFor="let job of items" [tender]="job" tappable (click)="showDetails(job)" (changed)="onChange($event)" [@softItem]></tender-item>
+    <ion-infinite-scroll (ionInfinite)="$event.waitFor(fetch(items, 10))" [enabled]="moreItems">
+      <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="{{ 'common.fetching-data' | translate }}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+
+  <nothing-found *ngIf="items && !items.length" context="bills.invoice.nothing-found" redirect="bills:preparation"></nothing-found>
+</ion-content>

@@ -1,0 +1,4 @@
+<div *ngIf="approval && approval.state !== 'pending'">
+  <span [ngClass]="approval.state"></span>
+  {{ 'common.approval.' + approval.state + '.info' | translate : { comment: approval.comment, hasComment: hasComment } }}
+</div>

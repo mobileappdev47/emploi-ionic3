@@ -1,0 +1,23 @@
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event);" #refresher>
+    <ion-refresher-content pulling-icon="ion-arrow-down-b positive" spinner="crescent" pullingText="{{ 'common.pull-to-refresh' | translate }}"
+      refreshingText="{{ 'common.refreshing' | translate }}">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <message-counter visible="new" update-strategy="{listen: 'event-name'}"></message-counter>
+
+  <ion-list no-lines *ngIf="items && items.length">
+    <assignment-card *ngFor="let assignment of items; let i = index;" [assignment]="assignment" (refresh)="doRefresh()" [attr.expanded]="i === 0"
+      [@softItem]>
+    </assignment-card>
+    <ion-infinite-scroll (ionInfinite)="$event.waitFor(fetch(items, 5))" [enabled]="moreItems">
+      <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="{{ 'common.fetching-data' | translate }}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+
+  <nothing-found *ngIf="items && !items.length" icon="ios-happy-outline" context="assignments.nothing-found" [values]="profile.data()"
+    redirect="jobs:matched">
+  </nothing-found>
+</ion-content>

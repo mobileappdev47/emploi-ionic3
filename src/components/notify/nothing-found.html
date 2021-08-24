@@ -1,0 +1,11 @@
+<div text-wrap text-center [attr.class]="values ? 'has-values' : ''">
+  <ion-item text-center>
+    <ion-icon *ngIf="icon" [name]="icon"></ion-icon>
+    {{ context + '.headline' | translate : values || {} }}
+    <br>
+    <div [innerHtml]="context + '.message' | translate : values || {}"></div>
+  </ion-item>
+  <button *ngIf="redirect" ion-button clear color="button-default" [tabSwitch]="redirect">
+    {{ context + '.button' | translate : values }}
+  </button>
+</div>

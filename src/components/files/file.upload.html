@@ -1,0 +1,9 @@
+<ion-item [ngClass]="{uploading: uploading}">
+  <button ion-button type="button" full [color]="button === 'optional' ? 'button-default' : 'button-primary'" (click)="select()" [attr.disabled]="disabled || undefined" [ngClass]="{outline: button === 'optional'}">
+    {{ label | translate }}
+  </button>
+  <div class="status">
+    <ion-spinner></ion-spinner>
+    <span>{{ 'files.upload.inprogress' | translate : {progress: progress} }}</span>
+  </div>
+</ion-item>

@@ -1,0 +1,82 @@
+
+page-assignment-details {
+    .dismiss {
+        border: none;
+        .button-inner {
+            text-transform: none;
+            color: $text-color;
+            font-weight: normal;
+            font-size: 1.7rem;
+            ion-icon {
+                color: color($colors, main);
+            }
+        }
+    }
+    [ion-button][full] {
+        margin-top: 20px;
+    }
+    ion-item {
+        &.schedule {
+            color: $text-color-light;
+            margin-top: 10px;
+            ion-row {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            .button-small-md, .button-small-ios {
+                margin: 0;
+                font-size: 1.4rem;
+                color: $text-color-light;
+            }
+        }
+        &.desc, &.docs, &.contact {
+            h5 {
+                margin-bottom: 15px;
+                &:not(:first-of-type) {
+                    margin-top: 20px;
+                }
+            }
+        }
+        &.docs, &.contact {
+            h5 + div > p {
+                margin-bottom: 20px;
+            }
+            .item-inner {
+                border: none !important;
+            }
+            .list-md, .list-ios {
+                margin-bottom: 0;
+            }
+            ion-row {
+                margin-top: 5px;
+                ion-icon:before {
+                    display: inline-block;
+                    transform: translateY(3px);
+                }
+            }
+            a {
+                color: $text-color-light;
+                text-decoration: none;
+            }
+        }
+        &.incentives, &.costs, &.wage{
+            span {
+                display: inline-block;
+                &:first-child {
+                    width: calc(100% - 90px);
+                }
+                & + span {
+                    width: 70px;
+                    text-align: right;
+                }
+            }
+        }
+        .category {
+            margin-top:10px;
+            color: $text-color-light;
+        }
+    }
+}

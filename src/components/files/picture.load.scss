@@ -1,0 +1,10 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+.picture-load {
+    transition: opacity ease-in-out 1s;
+    opacity: 0;
+    &[src^="blob"] {
+        opacity: 1;
+    }
+}

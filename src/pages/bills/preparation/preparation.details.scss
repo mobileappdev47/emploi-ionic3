@@ -1,0 +1,84 @@
+@import "../../../theme/variables.scss";
+
+preparation-details {
+    .input-wrapper {
+        align-items: start;
+    }
+    .templates {
+        min-height: 135px;
+    }
+    .add ion-label {
+        margin: 3px 0 !important;
+    }
+    .schedule {
+        ion-row {
+            margin-bottom: 0.2rem;
+            font-size: 1.4rem;
+        }
+    }
+    .quest {
+        ion-label {
+            margin-bottom: 5px;
+            margin-right: 0;
+        }
+        p {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        approval-info {
+            display: block;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: smaller;
+            span::before {
+                font-size: 1.6rem;
+            }
+        }
+    }
+    .approval {
+        margin: 15px 0;
+        p {
+            margin-top: 10px;
+        }
+        & + approval {
+            display: none;
+        }
+    }
+    [ion-button][icon-only] {
+        margin-top: -10px;
+        display: inline-block;
+        height: 35px;
+        span {
+            padding: 17px 12px;
+        }
+        &.optional {
+            box-shadow: none;
+            border-color: #fff !important;
+        }
+    }
+    .details {
+        .incentives, .costs, .wage{
+            p {
+                color: $text-color-light;
+            }
+            span {
+                color: $text-color-light;
+                display: inline-block;
+                &:first-child {
+                    width: calc(100% - 90px);
+                }
+                & + span {
+                    width: 70px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    file-upload {
+        &:last-of-type {
+            .item-md, .item-ios {
+                border-bottom: none;
+            }
+        }
+    }
+}

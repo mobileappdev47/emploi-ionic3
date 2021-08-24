@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-item>
+    <ion-thumbnail class="cal-date" item-start>
+      <h2>{{ message.created_at | amDateFormat : 'DD' }}</h2>
+      <p>{{ message.created_at | amDateFormat : 'MMMM' }}</p>
+      <small>{{ message.created_at | amDateFormat : 'HH:mm' }}</small>
+    </ion-thumbnail>
+    <ion-row class="head">
+      <h3 head-3>{{ message.subject }}</h3>
+      <p>{{ message.sender.fullname }}</p>
+    </ion-row>
+    <ion-row class="contact" light>
+      <p>{{ message.sender.email }}</p>
+    </ion-row>
+  </ion-item>
+  <ion-item class="details" light text-wrap>
+    <div itemDetails>
+      <p>{{ message.content }}</p>
+      <ion-icon name="trash" color="primary" class="remove" tappable (click)="remove($event)"></ion-icon>
+    </div>
+  </ion-item>
+</ion-card>

@@ -1,0 +1,20 @@
+<ion-row no-padding>
+  <ion-col>
+    <button ion-button icon-left clear small>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-datetime no-padding displayFormat="DD.MM.YYYY" (ionChange)="set()" [(ngModel)]="start"
+        [placeholder]="context + '.filters.' + name + '.start-placeholder' | translate"
+        [doneText]="'done' | translate" [cancelText]="'cancel' | translate">
+      </ion-datetime>
+    </button>
+  </ion-col>
+  <ion-col>
+    <button ion-button icon-left clear small>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-datetime no-padding displayFormat="DD.MM.YYYY" (ionChange)="set()" [(ngModel)]="end"
+        [placeholder]="context + '.filters.' + name + '.end-placeholder' | translate"
+        [doneText]="'done' | translate" [cancelText]="'cancel' | translate">
+      </ion-datetime>
+    </button>
+  </ion-col>
+</ion-row>

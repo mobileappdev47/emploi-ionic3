@@ -1,0 +1,36 @@
+@import "../../../theme/variables";
+
+create-invoice-details {
+    .docs {
+        margin-top: 2rem;
+    }
+    .head {
+        &.sum {
+            margin-top: -25px;
+            margin-bottom: 15px;
+            ion-icon {
+                margin-right: 8px;
+            }
+        }
+    }
+    .generate {
+        margin-top: 0 !important;
+        & + ion-item {
+            margin-top: -5px;
+            ion-label {
+                margin-top: 8px !important;
+            }
+        }
+    }
+
+    ion-input[validateCurrency] {
+        &:after {
+            bottom: 10px;
+            top: unset;
+            transform: none;
+        }
+    }
+    .item-md .radio-md[item-left] {
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,33 @@
+<ion-content padding>
+  <div class="result">
+    <div text-center>
+      <ion-item text-center text-wrap>
+        <ion-icon name="{{ result.passed ? 'ios-checkmark-circle-outline' : 'ios-sad-outline' }}"></ion-icon>
+        {{ 'exam.results.' + (result.passed ? 'passed' : 'failed') | translate }}
+      </ion-item>
+      <ion-item class="result" no-lines text-center text-wrap>
+        <h3 class="percents">{{ percentage() }}%</h3>
+        <p>{{ 'exam.results.questions' | translate }}: {{ result.questions }}</p>
+        <p>{{ 'exam.results.correct' | translate }}: {{ result.questions_ok }}</p>
+        <p>{{ 'exam.results.wrong' | translate }}: {{ result.questions_nok }}</p>
+      </ion-item>
+      <ion-item *ngIf="!result.passed" class="nok-questions" no-lines text-wrap>
+        <p>{{ 'exam.results.failed-questions' | translate }}</p>
+        <ul>
+          <li *ngFor="let question of result.question_nok_questions" [innerHTML]="question"></li>
+        </ul>
+      </ion-item>
+
+      <button *ngIf="!result.passed" color="button-primary" ion-button solid full (click)="restartTest()">
+        {{ 'exam.results.restart-test' | translate }}
+      </button>
+      <button *ngIf="!result.passed" color="default" ion-button clear float-right (click)="backToTrainings()">
+        {{ 'exam.results.back-to-training' | translate }}
+      </button>
+      <button *ngIf="result.passed" color="button-primary" ion-button solid full
+              tabSwitch="certificates" dismissModal="true">
+        {{ 'exam.results.back-to-certificates' | translate }}
+      </button>
+    </div>
+  </div>
+</ion-content>

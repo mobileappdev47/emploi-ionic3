@@ -1,0 +1,145 @@
+@import "../../theme/mixins";
+
+assignment-card {
+    display: block;
+    ion-card {
+        @include ion-card-p4y;
+        position: relative;
+    }
+    .counting {
+        display: none;
+        border-bottom: $card-border !important;
+        ion-thumbnail {
+            font-size: 40px;
+            text-align: center;
+            padding-top: 15px;
+        }
+    }
+    .action {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        height: 40px;
+        left: 0;
+        width: 100%;
+        font-size: 16px;
+        color: #fff;
+        background-color: $button-disabled-background;
+    }
+    &[expanded="true"] {
+        .counting {
+            display: flex;
+            & + tender-item {
+                ion-thumbnail {
+                    display: none;
+                }
+            }
+        }
+        ion-card.today {
+            .head .future {
+                display: none;
+            }
+            .head .today {
+                span:first-of-type:after {
+                    content: ',';
+                }
+            }
+            h3 {
+                width: 100%;
+            }
+            ion-label {
+                white-space: normal;
+            }
+            .remain, .late {
+                display: none;
+                padding-left: .5rem;
+            }
+            &.available {
+                .action {
+                    background-color: color($colors, button-primary);
+                }
+                .remain {
+                    display: inline-block;
+                }
+                .late {
+                    display: none;
+                }
+                &.delayed {
+                    .late {
+                        display: inline-block;
+                    }
+                    .remain {
+                        display: none;
+                    }
+                }
+            }
+            &.late, &.checkedin {
+                .head .today {
+                    span:first-of-type:after {
+                        content: '';
+                    }
+                    span + span {
+                        display: none;
+                    }
+                }
+                .action {
+                    background-color: color($colors, danger);
+                }
+            }
+            &.checkedin {
+                .action {
+                    background-color: color($colors, button-primary);
+                }
+
+                &.checkedout.done {
+                    tender-item {
+                        margin-bottom: 0;
+                    }
+                    .action {
+                        display: none;
+                    }
+                }
+            }
+        }
+        // icon styling
+        ion-card {
+            .counting ion-icon:before {
+                content: '\f467';
+            }
+            &.today .counting ion-icon:before {
+                content: '\f467';
+            }
+            &.available .counting ion-icon:before {
+                content: '\f4b6';
+            }
+            &.delayed .counting ion-icon:before {
+                content: '\f1de';
+            }
+            &.late .counting ion-icon:before {
+                content: '\f494';
+            }
+            &.checkedin .counting ion-icon:before {
+                content: '\f3ff';
+            }
+            &.checkedout .counting ion-icon:before {
+                content: '\f191';
+            }
+        }
+
+        ion-card:not(.today) .head .today {
+            display: none;
+        }
+        tender-item {
+            margin-bottom: 40px;
+        }
+        .action {
+            display: block;
+        }
+    }
+    tender-item {
+        .item-inner {
+            border-left: none !important;
+            padding: 10px !important;
+        }
+    }
+}

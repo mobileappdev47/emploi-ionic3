@@ -1,0 +1,20 @@
+<ion-content padding>
+  <img src="assets/img/logo.svg" alt="logo"/>
+  <form (ngSubmit)="login()" #local="ngForm">
+    <ion-list inset>
+      <ion-item>
+        <ion-label floating>{{ 'auth.login.email-placeholder' | translate }}</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="credentials.email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'auth.login.password-placeholder' | translate }}</ion-label>
+        <ion-input type="password" name="password" clearOnEdit="false" [(ngModel)]="credentials.password" required #password></ion-input>
+        <ion-checkbox item-right class="show-password" (click)="showPassword()"></ion-checkbox>
+      </ion-item>
+      <button ion-button full strong color="button-primary" solid type="submit" [disabled]="!local.form.valid">{{ 'auth.login.button' | translate }}</button>
+    </ion-list>
+  </form>
+
+  <button ion-button clear full (click)="forgotPasswordAction()">{{ 'auth.login.password-forgotten' | translate }}</button>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-content *ngIf="profile">
+  <button-back label="settings.page-name"></button-back>
+  <div id="picture">
+    <img [pictureLoad]="profile.face_picture_id" />
+  </div>
+  <ion-item>
+    <h3 head-3>{{ 'common.gender.' + profile.gender | translate }} {{ profile.firstname }} {{ profile.lastname }}</h3>
+    <h4>{{ profile.profession }}</h4>
+    <rating [ngModel]="profile.avg_assignment_rating" [readonly]="true"></rating>
+  </ion-item>
+  <ion-item>
+    <ion-row light text-nowrap>
+      <ion-icon name="home" padding-right></ion-icon>
+      <span>{{ profile.zip }} {{ profile.city }}, {{ profile.country }}</span>
+    </ion-row>
+    <ion-row light text-nowrap>
+      <ion-icon name="pin" padding-right></ion-icon>
+      <span>{{ profile.address }}</span>
+    </ion-row>
+    <ion-row light text-nowrap>
+      <ion-icon name="phone-portrait" padding-right></ion-icon>
+      <span>{{ profile.mobile }}</span>
+    </ion-row>
+    <ion-row light *ngIf="profile.alternative_phone" text-nowrap>
+      <ion-icon name="call" padding-right></ion-icon>
+      <span>{{ profile.alternative_phone }}</span>
+    </ion-row>
+    <ion-row light text-nowrap>
+      <ion-icon name="mail" padding-right></ion-icon>
+      <span>{{ profile.email }}</span>
+    </ion-row>
+    <ion-row light text-nowrap>
+      <ion-icon name="paper" padding-right></ion-icon>
+      <span>{{ 'profile.contract_types.title' | translate }}</span>
+    </ion-row>
+    <ion-row *ngFor="let type of profile.contract_types || []">
+      <span>{{ 'common.contract_types.' + type | translate }}</span><br/>
+    </ion-row>
+  </ion-item>
+</ion-content>

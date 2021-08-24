@@ -1,0 +1,37 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+file-upload {
+    .item-md, .item-ios {
+        padding-left: 0;
+        border-top: solid #dedede 1px;
+        &.item-block .item-inner {
+            border: none;
+        }
+    }
+    &:last-of-type {
+        .item-md, .item-ios {
+            border-bottom: solid #dedede 1px;
+        }
+    }
+    .status {
+        position: absolute;
+        display: none;
+        padding-top: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        ion-spinner + span {
+            display: inline-block;
+            padding: 10px;
+            transform: translateY(-8px);
+        }
+    }
+    .uploading {
+        [ion-button] {
+            opacity: 0.3;
+        }
+        .status {
+            display: block;
+        }
+    }
+}

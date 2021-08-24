@@ -1,0 +1,40 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+approval-info {
+    & > div {
+        position: relative;
+        padding-left: 25px;
+        line-height: 20px;
+        span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            font-family: 'FontAwesome';
+            color: #fff;
+            overflow: hidden;
+            line-height: 20px;
+            &::before {
+                display: inline-block;
+                transform: translate(2px, -1px);
+            }
+            &.accepted {
+                background-color: color($colors, success);
+                &::before {
+                    content: '\f00c';
+                }
+            }
+            &.rejected {
+                background-color: color($colors, danger);
+                &::before {
+                    content: '\f00d';
+                    transform: translate(3px, -1px);
+                }
+            }
+        }
+    }
+}

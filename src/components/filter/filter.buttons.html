@@ -1,0 +1,8 @@
+<ion-row>
+  <div *ngFor="let opt of list" class="filter-button">
+    <label>
+      <input [(ngModel)]="items[opt.id]" type="checkbox" (change)="set()">
+      <span>{{ opt.name }}</span>
+    </label>
+  </div>
+</ion-row>

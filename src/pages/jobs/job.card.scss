@@ -1,0 +1,101 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+job-card {
+    display: block;
+    ion-card {
+        @include ion-card-p4y;
+        .item-inner {
+            border-left: none !important;
+            padding-left: 5px !important;
+        }
+        &.mismatched {
+            &.mismatched-certificates {
+                .tender-item ion-thumbnail.cal-date {
+                    height: 143px;
+                }
+            }
+            .rates {
+                display: none;
+            }
+        }
+        ion-col[normal] {
+            color: $text-color;
+        }
+    }
+    ion-thumbnail {
+        float: left;
+    }
+    ion-item-options {
+        ion-icon {
+            display: block;
+            font-size: 200%;
+        }
+        .button-inner > div {
+            width: 200px;
+            display: none;
+            color: #fff;
+            &:not(.pending) {
+                display: block;
+            }
+        }
+        &.pending {
+            .button-inner > div {
+                display: none;
+                &.pending {
+                    display: block;
+                }
+            }
+        }
+        .reject {
+            background-color: color($colors, danger);
+            &.activated {
+                background-color: darken(color($colors, danger), 10%);
+            }
+        }
+    }
+    countdown-timer {
+        display: block;
+        font-size: smaller;
+        text-transform: none;
+        margin-top: 5px;
+    }
+    .mismatching {
+        color: color($colors, danger);
+        .category {
+            color: color($colors, danger);
+        }
+    }
+    .state {
+        text-align: right;
+        &.pending {
+            color: color($colors, warning);
+        }
+        &.declined {
+            color: color($colors, danger);
+        }
+    }
+    // workaround for short slide gesture (no .active-slide.active-options-left added by framework)
+    ion-item[style^="transform"]:not([style^="transform: translate3d(-"]) {
+        & ~ ion-item-options[side="left"] {
+            visibility: visible;
+        }
+    }
+    .category {
+        margin-top: 10px;
+        color: $text-color-light;
+    }
+}
+
+// related alert in global scope
+ion-alert.mismatched-info {
+    .alert-message {
+        text-align: left;
+        div:nth-child(odd) {
+            font-weight: bolder;
+        }
+        div:nth-child(even) {
+            margin-bottom: 1rem;
+        }
+    }
+}

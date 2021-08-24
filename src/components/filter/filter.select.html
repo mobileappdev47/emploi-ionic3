@@ -1,0 +1,10 @@
+<ion-row>
+  <ion-col col-12>
+    <div class="form-group">
+      <ion-select [(ngModel)]="id" interface="popover" (ionChange)="set()" [okText]="'buttons.confirm' | translate" [cancelText]="'buttons.cancel' | translate">
+        <ion-option *ngIf="none" [value]="0" text-wrap>{{ 'common.none' | translate }}</ion-option>
+        <ion-option *ngFor="let opt of items" [value]="opt.id" text-wrap>{{ opt.name }}</ion-option>
+      </ion-select>
+    </div>
+  </ion-col>
+</ion-row>

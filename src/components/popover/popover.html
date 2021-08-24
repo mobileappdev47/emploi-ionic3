@@ -1,0 +1,5 @@
+<ion-item>
+  <ion-label>{{"push_notification" |translate}}</ion-label>
+  <ion-toggle color="main" [(ngModel)]="toggleStatus" (ionChange)="notify($event)"></ion-toggle>
+</ion-item>
+<ion-item (click)="close()">{{"terms_and_conditions"|translate}}</ion-item>

@@ -1,0 +1,62 @@
+@import "../../../theme/mixins";
+
+invoice-item, .invoice-item {
+    display: block;
+    &.item {
+        padding-left: 0;
+    }
+    h3, p {
+        width: 100%;
+        display: block;
+    }
+    ion-row {
+        &.head {
+            p {
+                min-height: 15px;
+                @include line-ellipsis(1);
+            }
+        }
+        &.schedule {
+            font-size: 13px;
+            margin-top: 10px;
+            .col {
+                padding-left: 0;
+            }
+        }
+    }
+    .label-md {
+        margin: 5px 8px 5px 0;
+    }
+    ion-thumbnail {
+        &.cal-date {
+            position: relative;
+            height: 100px;
+            &[item-start] {
+                margin-top: 25px;
+            }
+            h2 {
+                font-size: 50px;
+                text-align: center;
+            }
+            p {
+                font-size: 13px;
+                text-align: center;
+                text-transform: uppercase;
+                color: $text-color;
+            }
+        }
+    }
+    ion-icon[name="calendar"] {
+        float: left;
+        margin-right: 5px;
+    }
+    .rejected {
+        color: color($colors, danger);
+    }
+    .issued {
+        color: color($colors, warning);
+    }
+    .total_sconto_hint {
+        font-size: x-small;
+    }
+}

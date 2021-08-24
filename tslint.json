@@ -1,0 +1,51 @@
+{
+    "linterOptions": {
+        "exclude": [
+            "node_modules"
+        ]
+    },
+    "extends": [
+        "tslint-eslint-rules",
+        "tslint:recommended",
+        "codelyzer"
+    ],
+    "rules": {
+        "member-access": { "options": ["no-public"] },
+        "max-line-length": [true, 160],
+        "indent": [true, "spaces", 4],
+        "ter-indent": { "severity": "warning", "options": [4, { "SwitchCase": 1 }]},
+        "quotemark": [true, "single"],
+        "trailing-comma": true,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "arrow-parens": true,
+        "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+        "banana-in-box": true,
+        "templates-no-negated-async": true,
+        "directive-selector": [true, "attribute", false, "camelCase"],
+        "component-selector": [true, "element", false, "kebab-case"],
+        "pipe-naming": [true, "camelCase"],
+        "use-input-property-decorator": true,
+        "use-output-property-decorator": true,
+        "use-host-property-decorator": false,
+        "use-view-encapsulation": true,
+        "no-attribute-parameter-decorator": true,
+        "no-input-rename": false,
+        "no-output-rename": true,
+        "no-forward-ref": true,
+        "use-life-cycle-interface": true,
+        "use-pipe-transform-interface": true,
+        "component-class-suffix": false,
+        "directive-class-suffix": false,
+        "templates-use-public": true,
+        "no-access-missing-member": true,
+        "invoke-injectable": true,
+        "template-to-ng-template": true,
+        "pipe-impure": true
+    },
+    "rulesDirectory": [
+        "node_modules/tslint-eslint-rules/dist/rules",
+        "node_modules/tslint/lib/rules",
+        "node_modules/codelyzer"
+    ]
+}
