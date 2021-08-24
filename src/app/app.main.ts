@@ -39,7 +39,7 @@ export class AppMain implements OnInit {
     constructor(public push: PushService, private tabs: TabsService, public translate: TranslateService, private platform: Platform, private status: StatusBar,
         private splash: SplashScreen, private events: Events, private confirm: ConfirmController, private user: ApiUserService,
         private notify: NotifyController, private api: NewApiService, private auth: ApiAuthService, private app: AppVersion,
-        private firebase: Firebase,
+      //  private firebase: Firebase,
         // private fcm: FCM
     ) {
         // set default lang
@@ -80,12 +80,12 @@ export class AppMain implements OnInit {
             let jsonSeData = (jsonDe as any);
             this.translate.setTranslation('de', jsonSeData, true);
 
-            this.firebase.getToken()
-                .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
-                .catch(error => console.error('Error getting token', error));
+            // this.firebase.getToken()
+            //     .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
+            //     .catch(error => console.error('Error getting token', error));
 
-            this.firebase.onNotificationOpen()
-                .subscribe(data => console.log(`User opened a notification ${data}`));
+            // this.firebase.onNotificationOpen()
+            //     .subscribe(data => console.log(`User opened a notification ${data}`));
 
         });
     }

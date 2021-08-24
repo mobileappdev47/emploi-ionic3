@@ -19,7 +19,7 @@ import { AppVersion } from '@ionic-native/app-version';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { NgObjectPipesModule, NgArrayPipesModule } from 'ngx-pipes';
 // import { FCM } from '@ionic-native/fcm';
-import { Firebase } from '@ionic-native/firebase';
+//import { Firebase } from '@ionic-native/firebase';
 
 import { appConfig } from './app.config';
 import { AppMain } from './app.main';
@@ -81,7 +81,7 @@ const providers: Provider[] = [
     Camera,
     AppVersion,
     InAppBrowser,
-    Firebase
+    //Firebase
     // FCM
 ];
 
