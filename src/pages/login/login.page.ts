@@ -17,8 +17,8 @@ export class LoginPage {
     @ViewChild('password') input: TextInput;
 
     logging: Loading;
-    credentials = { email: 'amploi.free01@gmail.com', password: 'Elevate123$' };
-    // credentials = { email: 'heike70@vodafone.de', password: 'NYhQUHFPQDkC' };
+    // credentials = { email: '', password: '' };
+    credentials = { email: 'heike70@vodafone.de', password: 'NYhQUHFPQDkC' };
 
     constructor(public translate: TranslateService, public loading: LoadingController, public navigation: NavController, public params: NavParams,
         private events: Events, private confirm: ConfirmController, private auth: ApiAuthService, private user: ApiUserService,

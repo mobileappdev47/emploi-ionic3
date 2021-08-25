@@ -17,11 +17,8 @@ export const appConfig = {
     // apiBaseUrl: "http://3.127.178.10:90",
     // apiBaseUrl: "http://3.64.49.6:90",
     // apiBaseUrl: "http://18.159.190.204:90/"
-    // apiBaseUrl: "https://www.amploi.at:447/",
-    // apiBaseUrl: "http://3.64.49.6:90",
-    // apiBaseUrl: "http://18.184.121.77:90",
-    apiBaseUrl: "http://3.127.178.10:90",
-    // apiBaseUrl: "http://3.127.178.10:90",
+    apiBaseUrl: "https://www.amploi.at:447/",
+    //apiBaseUrl: "http://3.127.178.10",
     // path to refresh token
     refreshTokenUrl: '/auth/refresh-token',
     // default language

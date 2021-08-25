@@ -19,7 +19,7 @@ export class JobCard implements OnInit {
     @Output() changed: EventEmitter<any> = new EventEmitter();
 
     process: boolean = false;
-    pending: number = undefined;
+    pending: any = undefined;
     status: IJobStatus = {};
     delay: number = actionDelay / 1000;
 

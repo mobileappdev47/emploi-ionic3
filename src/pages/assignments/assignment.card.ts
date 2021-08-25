@@ -15,7 +15,7 @@ export class AssignmentCard implements AfterViewInit, OnDestroy {
     status: IAssignmentStatus = {};
 
     private expanded: boolean;
-    private timeout: number;
+    private timeout: any;
     private processing: boolean;
 
     constructor(public alertCtrl: AlertController, public socialSharing: SocialSharing, private element: ElementRef,
